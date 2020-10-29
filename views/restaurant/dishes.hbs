@@ -1,0 +1,55 @@
+<h1>Your dishes</h1>
+
+
+<form action="/restaurant/dishes" method="post">
+    <div>
+        <label for="name">Dish name</label>
+        <input type="text" name="name" id="name" placeholder="Dish name">
+    </div>
+
+    <div>
+        <label for="description">Description</label>
+        <input type="text" name="description" id="description" placeholder="Description">
+    </div>
+
+    <div>
+        <label for="characteristics">Characteristics</label>
+        <input type="text" name="characteristics" id="characteristics" placeholder="Put 2 or 3 characteristics">
+    </div>
+
+    <div>
+        <label for="allergies">This dish has...?</label>
+        <select name="allergies" id="allergies">
+            <option value="Wheat">Wheat</option>
+            <option value="Egg">Egg</option>
+            <option value="Peanut">Peanut</option>
+            <option value="Milk">Milk</option>
+            <option value="Celery">Celery</option>
+            <option value="Sesam">Sesam</option>
+            <option value="Lupine">Lupine</option>
+            <option value="Fish">Fish</option>
+            <option value="Crustacea">Crustacea</option>
+            <option value="Mollusk">Mollusk</option>
+            <option value="Soy">Soy</option>
+            <option value="Nuts">Nuts</option>
+            <option value="Mustard">Mustard</option>
+            <option value="Sulphites">Sulphites</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="categories">Select the category</label>
+        <select name="categories" id="categories">
+            <option value="starters">To start with</option>
+            <option value="main">Main Dishes</option>
+            <option value="desserts">Desserts</option>
+        </select>
+    </div>
+
+
+            <button> Create dish </button>
+</form>
+
+{{#each dishes}}
+ <p>{{name}}</p>
+ {{/each}}
