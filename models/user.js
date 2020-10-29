@@ -2,11 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  name: String,
+  username: String,
   email: String,
   password: String,
-  isRestaurant: { type: Boolean, default: false },
-  fee: { type: Number, default: null }
+  isRestaurant: { type: Boolean, default: true }
 });
 
 userSchema.set('timestamps', true);
