@@ -128,4 +128,3 @@ Make payment possible once the client has the summary order
 
 ## 
 
-mar
