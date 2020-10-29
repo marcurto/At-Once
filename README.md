@@ -112,6 +112,8 @@ Add geolocation in order to detect the restaurant automatically
 
 Make payment possible once the client has the summary order
 
+Add an option to book a table on the restaurant profile
+
 ## Links
 
 #### Git

@@ -1,2 +1,16 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<p> Welcome to {{ title }}. </p>
+
+{{#if isUserLoggedIn}}
+  <p> Hello, {{ currentUserInfo.name }}. </p>
+{{/if}}
+
+<nav>
+  <ul>
+    {{#if isUserLoggedIn}}
+      <li> <a href="/logout"> Log Out </a> </li>
+    {{else}}
+      <li> <a href="/signup"> Sign Up </a> </li>
+      <li> <a href="/login"> Log In </a> </li>
+    {{/if}}
+  </ul>
+</nav>
