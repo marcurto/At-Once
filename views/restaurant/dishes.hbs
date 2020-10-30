@@ -47,15 +47,16 @@
     </div>
 
 
-            <button> Create dish </button>
+    <button> Create dish </button>
 </form>
 
 {{#each dishes}}
- <p>{{name}}</p>
-<form method="POST" action="/restaurant/dishes/edit/{{this._id}}">
-    <button type="submit" onclick="showEditForm()">Edit dish</button>
-    <div id="editDiv" >
-     <div>
+<p>{{name}}</p>
+
+<button onclick="showEditForm()">Edit dish</button>
+<div id="editDiv" style="display: none;">
+    <form method="POST" action="/restaurant/dishes/edit/{{this._id}}" >
+    <div>
         <label for="name">Dish name</label>
         <input type="text" name="name" id="name" placeholder="Dish name" value="{{name}}">
     </div>
@@ -67,7 +68,8 @@
 
     <div>
         <label for="characteristics">Characteristics</label>
-        <input type="text" name="characteristics" id="characteristics" placeholder="Put 2 or 3 characteristics" value="{{characteristics}}">
+        <input type="text" name="characteristics" id="characteristics" placeholder="Put 2 or 3 characteristics"
+            value="{{characteristics}}">
     </div>
 
     <div>
@@ -100,18 +102,32 @@
     </div>
 
 
-            <button> Save dish </button>
-            </div>
-</form>
+   
+ 
+        <button type="submit" onclick="showEditForm2()">Save dish</button>
+    </form>
 
-    
+</div>
+
+
+
 <form method="POST" action="/restaurant/dishes/remove/{{this._id}}">
     <button type="submit">Remove dish</button>
 </form>
- {{/each}}
+{{/each}}
 
- <script>
-    function showEditForm(){
-        document.getElementById("editDiv").css({display:""})
+<script>
+    function showEditForm() {
+        if (document.getElementById("editDiv").style.display == "none"){
+            document.getElementById("editDiv").style.display = "block";
+        } else {
+             document.getElementById("editDiv").style.display = "none"
+        }
     }
- </script>
+
+    function showEditForm2() {
+        if (document.getElementById("editDiv").style.display == "block"){
+            document.getElementById("editDiv").style.display = "none";
+        }
+    }
+</script>
