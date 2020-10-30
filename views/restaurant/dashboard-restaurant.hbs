@@ -1,6 +1,16 @@
 <h1>Profile</h1>
 
-<a href="/restaurant/dishes">Your dishes</a>
-<a href="">Your menu</a>
-<a href="s">Your orders</a>
-<a href="">Your profile</a>
+
+
+<ul>
+    {{#if isUserLoggedIn}}
+    <li> <a href="/restaurant/dishes">Your dishes</a></li>
+    <li> <a href="">Your menu</a></li>
+    <li> <a href="">Your orders</a></li>
+    <li> <a href="">Your profile</a></li>
+    <li> <a href="/logout"> Log Out </a></li>
+    {{else}}
+    <li> <a href="/signup"> Sign Up </a> </li>
+    <li> <a href="/login"> Log In </a> </li>
+    {{/if}}
+</ul>
