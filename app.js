@@ -11,7 +11,7 @@ const hbs = require('hbs');
 const mongoose = require('mongoose');
 
 mongoose
-  .connect('mongodb://localhost/proyecto-dos', {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
@@ -23,14 +23,15 @@ mongoose
   .catch(err => {
     console.error('Error connecting to mongo', err);
   });
+  var app = express();
 
+var authRouter = require('./routes/auth');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var authRouter = require('./routes/auth');
 var restaurantRouter = require('./routes/restaurant');
 
 
-var app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

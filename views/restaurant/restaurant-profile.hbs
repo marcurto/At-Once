@@ -1,0 +1,78 @@
+<div id="createProfile" style="display: block;">
+    <h1>Crear perfil</h1>
+    <form action="/restaurant/restaurant-profile" method="post">
+        <div>
+            <label for="name"> Restaurant name </label>
+            <input type="text" name="name" id="rname" placeholder="Restaurant name">
+        </div>
+
+        <div>
+            <label for="description"> Description </label>
+            <input type="textarea" name="description" id="rdescription" placeholder="Descrive your restaurant">
+        </div>
+
+        <div>
+            <h4>Contact info:</h4>
+            <label for="address"> Adress: </label>
+            <input type="text" name="address" id="radress" placeholder="">
+            <label for="phone"> Phone number: </label>
+            <input type="number" name="phone" id="rphone" placeholder="">
+            <label for="email"> Email: </label>
+            <input type="email" name="email" id="remail" placeholder="">
+            <label for="website"> Website: </label>
+            <input type="text" name="website" id="rwebsite" placeholder="">
+        </div>
+
+        <div>
+            <label for="imgPath"> Adress: </label>
+            <img name="imgPath" id="rimg" src="" alt="Restaurant image" />
+        </div>
+
+        <button onclick="hideButton()"> Create your profile </button>
+    </form>
+</div>
+
+
+<div id="updateProfile" style="display: none;">
+<h1>Modificar perfil</h1>
+<form action="/restaurant/restaurant-profile" method="post">
+    <div>
+        <label for="name"> Restaurant name </label>
+        <input type="text" name="name" id="rname" placeholder="Restaurant name">
+    </div>
+
+    <div>
+        <label for="description"> Description </label>
+        <input type="textarea" name="description" id="rdescription" placeholder="Descrive your restaurant">
+    </div>
+
+    <div>
+        <h4>Contact info:</h4>
+        <label for="address"> Adress: </label>
+        <input type="text" name="address" id="radress" placeholder="">
+        <label for="phone"> Phone number: </label>
+        <input type="number" name="phone" id="rphone" placeholder="">
+        <label for="email"> Email: </label>
+        <input type="email" name="email" id="remail" placeholder="">
+        <label for="website"> Website: </label>
+        <input type="text" name="website" id="rwebsite" placeholder="">
+    </div>
+
+    <div>
+        <label for="imgPath"> Adress: </label>
+        <img name="imgPath" id="rimg" src="" alt="Restaurant image" />
+    </div>
+
+    <button> Update your profile </button>
+</form>
+</div>
+
+
+<script>
+    function hideButton() {
+        if (document.getElementById("createProfile").style.display == "block"){
+            document.getElementById("createProfile").style.display = "none";
+            document.getElementById("updateProfile").style.display = "block";
+        }
+    }
+</script>

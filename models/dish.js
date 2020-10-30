@@ -11,6 +11,8 @@ const dishSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: 'Restaurant' }
 });
 
+//Añadir preciooooooooooooooooo
+
 dishSchema.set('timestamps', true);
 
 const Dish = mongoose.model('Dish', dishSchema);

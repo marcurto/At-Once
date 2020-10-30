@@ -1,0 +1,13 @@
+<form action="/restaurant/menu" method="POST">
+    
+    <input for="name" type="text">
+    {{#each dishes}}
+    <input class="input" type="checkbox" name={{id}} value="true">
+    <label for="selectedDish">{{name}}</label>
+    {{/each}}
+<button type="submit">btrh</button>
+</form>
+
+
+
+
