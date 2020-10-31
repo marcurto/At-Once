@@ -119,7 +119,7 @@ router.post('/dishes/edit/:id', function (req, res, next) {
   }
   });
 
-  // Create-edite menu
+  // Create-edit menu
   router.get("/menu-edit", withAuth, async (req, res, next) => {
       try {
           const dishes = await Dish.find({user: req.userID})
@@ -156,6 +156,17 @@ router.post('/dishes/edit/:id', function (req, res, next) {
   });
 
 
+   /*  //Remove menu
+    router.post('/menu/remove/:id', withAuth, (req, res, next) => {
+      Menu.findByIdAndRemove(req.params.id)
+      .then((removedMenu) => {
+        res.redirect('/restaurant/menu');
+      })
+      .catch((error) => {
+          next();
+      })
+    });
+ */
 
 
 module.exports = router;

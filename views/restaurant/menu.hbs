@@ -1,6 +1,12 @@
-<button><a href="/restaurant/menu-edit">Update menu</a></button>
 
-
+<button><a href="/restaurant/menu-edit">Create menu</a></button>
 {{#each menu.dishes}}
 <p>{{name}}</p>
 {{/each}}
+{{!-- 
+<form method="POST" action="/restaurant/menu/{{this._id}}">
+<button type="submit">Remove menu</button>
+</form>
+ --}}
+
+
