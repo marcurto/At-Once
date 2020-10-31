@@ -11,23 +11,23 @@ const hbs = require('hbs');
 const mongoose = require('mongoose');
 
 mongoose
-.connect( process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-.then(x => {
-  console.log(
-    `Connected to Mongo! Database name: "${x.connections[0].name}"`
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(x => {
+    console.log(
+      `Connected to Mongo! Database name: "${x.connections[0].name}"`
     );
   })
   .catch(err => {
     console.error('Error connecting to mongo', err);
   });
-  
-var app = express();
+  var app = express();
+
+var authRouter = require('./routes/auth');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var authRouter = require('./routes/auth');
 var restaurantRouter = require('./routes/restaurant');
 
 
