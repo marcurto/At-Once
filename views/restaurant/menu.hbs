@@ -1,12 +1,20 @@
+{{#if menu}}
 
-<button><a href="/restaurant/menu-edit">Create menu</a></button>
-{{#each menu.dishes}}
-<p>{{name}}</p>
-{{/each}}
-{{!-- 
-<form method="POST" action="/restaurant/menu/{{this._id}}">
-<button type="submit">Remove menu</button>
-</form>
- --}}
+    {{menu.name}}
+    {{#each menu.dishes}}
+    <p>{{name}}</p>
+    {{/each}}
 
 
+    <button><a href="/restaurant/menu-edit/{{menu._id}}">Update menu</a></button>
+    <form method="POST" action="/restaurant/menu/remove/{{menu._id}}">
+        <button type="submit">Remove menu</button>
+    </form>
+
+
+
+{{else}}
+<button><a href="/restaurant/menu-create">Create menu</a></button>
+
+
+{{/if }}

@@ -79,8 +79,13 @@ router.post('/dishes/edit/:id', function (req, res, next) {
 
 
   // Restaurant profile
-  router.get("/restaurant-profile", withAuth, (req, res, next) => {
-    res.render("restaurant/restaurant-profile");
+  router.get("/restaurant-profile", withAuth, async (req, res, next) => {
+    try {
+      const restaruantProfile = await Restaurant.find()
+      res.render("restaurant/restaurant-profile", {restaurant: restaruantProfile});
+  } catch (error){
+      next()
+  }
   });
 
   router.post("/restaurant-profile", withAuth, async (req, res, next) => {
@@ -103,10 +108,48 @@ router.post('/dishes/edit/:id', function (req, res, next) {
         next(err);
         return;
       }
-      // res.redirect('/restaurant/restaurant-profile');
+      res.render('restaurant/restaurant-profile', {restaurant: theRestaurant});
     });
   });
 
+
+  // Update profile
+  router.get('/restaurant-profile-edit/:id', withAuth, async (req, res, next) => {
+    try {
+      const restaurant = await Restaurant.find({user: req.userID})
+      res.render("restaurant/restaurant-profile-edit", {restaurant_id: req.params.id});
+  } catch (error){
+      next()
+  }
+  });
+  router.post("/menu-edit/edit/:id", withAuth, async (req, res, next) => {
+    const updatedMenu = {
+      name: req.body.name,
+      dishes: [],
+      user: req.userID,
+      restaurant: req.userID
+    };
+
+    for (var key in req.body) {
+      if (req.body[key] == "true") {           
+        menutInfo.dishes.push(key);
+      }
+  }
+    Menu.update({_id: req.params.id}, updatedMenu, (err, theMenu) => {
+      if (err) {return next(err); }
+      res.redirect('/restaurant/menu');
+    });
+  });
+
+
+
+
+
+
+
+
+
+  
 
   //Your menu
   router.get("/menu", withAuth, async (req, res, next) => {
@@ -119,11 +162,11 @@ router.post('/dishes/edit/:id', function (req, res, next) {
   }
   });
 
-  // Create-edit menu
-  router.get("/menu-edit", withAuth, async (req, res, next) => {
+  // Create menu
+  router.get("/menu-create", withAuth, async (req, res, next) => {
       try {
           const dishes = await Dish.find({user: req.userID})
-          res.render("restaurant/menu-edit", {dishes: dishes});
+          res.render("restaurant/menu-create", {dishes: dishes});
       } catch (error){
           next()
       }
@@ -131,7 +174,6 @@ router.post('/dishes/edit/:id', function (req, res, next) {
 
 
   router.post("/menu", withAuth, async (req, res, next) => {
-
     const menutInfo = {
       name: req.body.name,
       dishes: [],
@@ -155,18 +197,47 @@ router.post('/dishes/edit/:id', function (req, res, next) {
     });
   });
 
+  // Edit menu
+  router.get('/menu-edit/:id', withAuth, async (req, res, next) => {
+    try {
+      const dishes = await Dish.find({user: req.userID})
+      res.render("restaurant/menu-edit", {dishes: dishes, menu_id: req.params.id});
+  } catch (error){
+      next()
+  }
+  });
+  router.post("/menu-edit/edit/:id", withAuth, async (req, res, next) => {
+    const updatedMenu = {
+      name: req.body.name,
+      dishes: [],
+      user: req.userID,
+      restaurant: req.userID
+    };
 
-   /*  //Remove menu
-    router.post('/menu/remove/:id', withAuth, (req, res, next) => {
-      Menu.findByIdAndRemove(req.params.id)
-      .then((removedMenu) => {
-        res.redirect('/restaurant/menu');
-      })
-      .catch((error) => {
-          next();
-      })
+    for (var key in req.body) {
+      if (req.body[key] == "true") {           
+        menutInfo.dishes.push(key);
+      }
+  }
+    Menu.update({_id: req.params.id}, updatedMenu, (err, theMenu) => {
+      if (err) {return next(err); }
+      res.redirect('/restaurant/menu');
     });
- */
+  });
+
+
+
+  // Remove menu
+  router.post('/menu/remove/:id', withAuth, (req, res, next) => {
+    console.log(req.params.id)
+    Menu.findByIdAndRemove(req.params.id)
+    .then((removedMenu) => {
+      res.redirect('/restaurant/menu');
+    })
+    .catch((error) => {
+        next();
+    })
+  });
 
 
 module.exports = router;

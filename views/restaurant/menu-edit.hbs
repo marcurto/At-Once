@@ -1,10 +1,15 @@
-<form action="/restaurant/menu" method="POST">
+<form action="/restaurant/menu-edit/edit/{{menu_id}}" method="POST">
     
-    <input for="name" type="text">
+    <input for="name" name="name" type="text" value="{{name}}">
     {{#each dishes}}
     <input class="input" type="checkbox" name={{id}} value="true">
     <label for="selectedDish">{{name}}</label>
     {{/each}}
+<button type="submit">Edit menu</button>
+</form>
+
+
+
 
 <button type="submit">Save menu</button>
 </form>

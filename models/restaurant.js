@@ -12,7 +12,7 @@ const restaurantSchema = new Schema({
   },
   imgPath: String,
   //imgName: String alt descripció
-  user: { type: Schema.Types.ObjectId, ref: 'User' }
+  user: { type: Schema.Types.ObjectId, ref: 'User', unique: true }
 });
 
 restaurantSchema.set('timestamps', true);
