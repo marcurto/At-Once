@@ -19,7 +19,7 @@ res.render("auth/signup",{
 });
 
 router.post("/signup", async (req, res, next) => { 
-    const { username, email, password } = req.body;
+    const { username, email, password, isRestaurant } = req.body;
   
     if (email === "" || password === "" || username === "") {
       res.render("auth/signup", {
@@ -45,6 +45,7 @@ router.post("/signup", async (req, res, next) => {
         username: username,
         email: email,
         password: hashedPass,
+        isRestaurant: isRestaurant
       };
   
       const theUser = new User(userSubmission);

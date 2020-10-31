@@ -116,40 +116,36 @@ router.post('/dishes/edit/:id', function (req, res, next) {
   // Update profile
   router.get('/restaurant-profile-edit/:id', withAuth, async (req, res, next) => {
     try {
-      const restaurant = await Restaurant.find({user: req.userID})
-      res.render("restaurant/restaurant-profile-edit", {restaurant_id: req.params.id});
+      const restaurant = await Restaurant.findById({user: req.userID})
+      console.log(restaurant)
+
+      res.render("restaurant/restaurant-profile-edit", {restaurant_id:req.params.id});
   } catch (error){
       next()
   }
   });
-  router.post("/menu-edit/edit/:id", withAuth, async (req, res, next) => {
-    const updatedMenu = {
+
+  router.post("/restaurant-profile-edit/edit/:id", withAuth, async (req, res, next) => {
+    const updatedRestaurant = {
       name: req.body.name,
-      dishes: [],
-      user: req.userID,
-      restaurant: req.userID
+      description: req.body.description,
+      contactInfo: {
+        address: req.body.address,
+        phone: req.body.phone,
+        email: req.body.email,
+        website: req.body.website,
+      },
+      imgPath: req.body.imgPath,
+      user: req.userID
     };
 
-    for (var key in req.body) {
-      if (req.body[key] == "true") {           
-        menutInfo.dishes.push(key);
-      }
-  }
-    Menu.update({_id: req.params.id}, updatedMenu, (err, theMenu) => {
+
+    Restaurant.update({_id: req.params.id}, updatedRestaurant, (err, theRestaurant) => {
       if (err) {return next(err); }
-      res.redirect('/restaurant/menu');
+      res.redirect('/restaurant/restaurant-profile');
     });
   });
 
-
-
-
-
-
-
-
-
-  
 
   //Your menu
   router.get("/menu", withAuth, async (req, res, next) => {

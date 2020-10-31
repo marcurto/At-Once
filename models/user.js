@@ -5,7 +5,7 @@ const userSchema = new Schema({
   username: String,
   email: String,
   password: String,
-  isRestaurant: { type: Boolean, default: true }
+  isRestaurant: { type: Boolean, default:true }
 });
 
 userSchema.set('timestamps', true);

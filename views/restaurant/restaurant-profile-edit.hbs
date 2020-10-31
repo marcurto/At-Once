@@ -1,4 +1,4 @@
-    <form>
+    <form action="/restaurant/restaurant-profile-edit/edit/{{restaurant_id}}" method="POST">
     <div>
         <label for="name"> Restaurant name </label>
         <input type="text" name="name" id="rname" placeholder="Restaurant name" value="{{name}}">
@@ -22,5 +22,8 @@
         <label for="imgPath"> Adress: </label>
         <img name="imgPath" id="rimg" src="" alt="Restaurant image" value="{{imgPath}}"/>
     </div>
+
+    <button type="submit">Save profile</button>
+
 
     </form>

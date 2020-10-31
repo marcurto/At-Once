@@ -1,0 +1,22 @@
+<h3>Hello {{user.name}}!</h3>
+
+<form>
+  <div>
+    <label for="table-input"> Table number </label>
+    <input type="number" name="table" id="table-input" />
+  </div>
+</form>
+
+{{#if table-input}}
+<h4>Let's order</h4>
+
+<form action="/client/client-order" method="POST">
+    <input for="name" name="name" type="text">
+    {{#each dishes}}
+    <input class="input" type="checkbox" name={{id}} value="true">
+    <label for="selectedDish">{{name}}</label>
+    {{/each}}
+<button type="submit">Order</button>
+</form>
+
+{{/if}}

@@ -54,7 +54,7 @@
 <p>{{name}}</p>
 
 <button onclick="showEditForm()">Edit dish</button>
-<div id="editDiv" style="display: none;">
+<div class="editDiv" style="display: none;">
     <form method="POST" action="/restaurant/dishes/edit/{{this._id}}" >
     <div>
         <label for="name">Dish name</label>
@@ -116,18 +116,23 @@
 </form>
 {{/each}}
 
+<a href="/restaurant/dashboard-restaurant">Back</a>
+
 <script>
     function showEditForm() {
-        if (document.getElementById("editDiv").style.display == "none"){
-            document.getElementById("editDiv").style.display = "block";
+        var dishesArr = document.getElementsByClassName("editDiv")
+        for (let i=0; i<dishesArr.length; i++){
+            if (dishesArr[i].style.display == "none"){
+                dishesArr[i].style.display = "block"
+            }
         } else {
-             document.getElementById("editDiv").style.display = "none"
+            dishesArr[i].style.display = "none"
         }
     }
 
     function showEditForm2() {
-        if (document.getElementById("editDiv").style.display == "block"){
-            document.getElementById("editDiv").style.display = "none";
+        if (document.getElementsByClassName("editDiv").style.display == "block"){
+            document.getElementsByClassName("editDiv").style.display = "none";
         }
     }
 </script>
