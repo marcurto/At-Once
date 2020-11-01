@@ -204,11 +204,12 @@ router.post('/dishes/edit/:id', function (req, res, next) {
   }
   });
   router.post("/menu-edit/edit/:id", withAuth, async (req, res, next) => {
+    const restaurant = await Restaurant.findOne({user: req.userID})
     const updatedMenu = {
       name: req.body.name,
       dishes: [],
       user: req.userID,
-      restaurant: req.userID
+      restaurant: restaurant._id
     };
 
     for (var key in req.body) {
@@ -216,7 +217,7 @@ router.post('/dishes/edit/:id', function (req, res, next) {
         updatedMenu.dishes.push(key);
       }
   }
-    Menu.update({_id: req.params.id}, updatedMenu, (err, theMenu) => {
+    Menu.update({_id: req.params.id}, updatedMenu, (err) => {
       if (err) {return next(err); }
       res.redirect('/restaurant/menu');
     });

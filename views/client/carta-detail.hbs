@@ -1,19 +1,52 @@
-
 <h1>Hello {{username}}!</h1>
 
-<form>
-  <div>
-    <label for="table-input"> Table number </label>
-    <input type="number" name="table" id="table-input" />
-  </div>
-</form>
 
 <h2>{{restaurant.name}}</h2>
+
+<form action="/client/order-summary" method="POST">
+
+    <div>
+        <label for="table-input"> Table number </label>
+        <input type="number" name="table" id="table-input" />
+    </div>
+    
 <h3>{{restMenu.name}}</h3>
-{{#each restMenu.dishes}}
-<div>
-    <h4>{{this.name}}</h4>
-</div>
-<div>{{this.description}}</div>
-<div>{{this.price}}</div>
-{{/each}}
+
+    <h4>To start with</h4>
+    {{#each restMenu.dishes}}
+    {{#ifCond this.category '==' "starters"}}
+    <div>
+        <input class="input" type="checkbox" name={{id}} value="true">
+        <label for="selectedDish">{{this.name}}</label>
+    </div>
+    <div>{{this.description}}</div>
+    <div>{{this.price}}</div>
+    {{/ifCond}}
+    {{/each}}
+
+    <h4>Main dishes</h4>
+    {{#each restMenu.dishes}}
+    {{#ifCond this.category '==' "main"}}
+    <div>
+        <input class="input" type="checkbox" name={{id}} value="true">
+        <label for="selectedDish">{{this.name}}</label>
+    </div>
+    <div>{{this.description}}</div>
+    <div>{{this.price}}</div>
+    {{/ifCond}}
+    {{/each}}
+
+    <h4>Desserts</h4>
+    {{#each restMenu.dishes}}
+    {{#ifCond this.category '==' "desserts"}}
+    <div>
+        <input class="input" type="checkbox" name={{id}} value="true">
+        <label for="selectedDish">{{this.name}}</label>
+    </div>
+    <div>{{this.description}}</div>
+    <div>{{this.price}}</div>
+    {{/ifCond}}
+    {{/each}}
+
+    <button type="submit">Order</button>
+</form>
