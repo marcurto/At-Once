@@ -19,6 +19,7 @@ router.get("/dashboard-client", withAuth, async (req, res, next) => {
 });
 
 
+  
 // Carta Detail
 router.get("/carta-detail/:id", withAuth, async (req, res, next) => {
   try {
@@ -75,6 +76,34 @@ router.get('/order-summary/:id', withAuth, async (req, res, next) => {
     next()
   }
 });
+
+//order-summary
+ router.post("/order-summary", withAuth, (req, res, next) => {
+    const orderInfo = {
+      name: req.body.name,
+      dishes: [],
+      user: req.userID,
+      restaurant: req.userID
+    };
+
+    for (var key in req.body) {
+      if (req.body[key] == "true") {           
+        orderInfo.dishes.push(key);
+      }
+  }
+  
+    const theOrder = new Order(orderInfo);
+    console.log(theOrder , "this is the order")
+    theOrder.save((err) => {
+      if (err) {
+        next(err);
+        return;
+      }
+      res.redirect('/client/order-summary');
+    });
+  });
+
+ 
 
 
 
