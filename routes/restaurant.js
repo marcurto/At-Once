@@ -143,15 +143,6 @@ router.post('/dishes/edit/:id', function (req, res, next) {
   })
 
 
-
-
-
-
-
-
-
-  
-
   //Your menu
   router.get("/menu", withAuth, async (req, res, next) => {
     try {
@@ -175,11 +166,12 @@ router.post('/dishes/edit/:id', function (req, res, next) {
 
 
   router.post("/menu", withAuth, async (req, res, next) => {
+    const restaurant = await Restaurant.findOne({user: req.userID})
     const menutInfo = {
       name: req.body.name,
       dishes: [],
       user: req.userID,
-      restaurant: req.userID
+      restaurant: restaurant._id
     };
 
     for (var key in req.body) {

@@ -104,7 +104,7 @@ router.post("/signup", async (req, res, next) => {
         if (userWithoutPass.isRestaurant){
         res.status(200).redirect("restaurant/dashboard-restaurant");
         } else {
-         res.status(200).redirect('client/dashbord-client')
+         res.status(200).redirect('client/dashboard-client')
         }
       } else {
         res.render("auth/login", {

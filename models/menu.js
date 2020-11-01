@@ -5,7 +5,7 @@ const menuSchema = new Schema({
   name: String,
   dishes: [{type: Schema.Types.ObjectId, ref: 'Dish'}],
   user: { type: Schema.Types.ObjectId, ref: 'User', unique: true },
-  user: { type: Schema.Types.ObjectId, ref: 'Restaurant', unique: true}
+  restaurant: { type: Schema.Types.ObjectId, ref: 'Restaurant', unique: true}
 });
 
 menuSchema.set('timestamps', true);
