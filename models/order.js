@@ -4,12 +4,12 @@ const Schema = mongoose.Schema;
 const orderSchema = new Schema({
   table: Number,
   dishes: [{type: Schema.Types.ObjectId, ref: 'Dish'}],
-  user: { type: Schema.Types.ObjectId, ref: 'User', unique: true },
-  restaurant: { type: Schema.Types.ObjectId, ref: 'Restaurant', unique: true}
+  user: { type: Schema.Types.ObjectId, ref: 'User'},
+  restaurant: { type: Schema.Types.ObjectId, ref: 'Restaurant'}
 });
 
-menuSchema.set('timestamps', true);
+orderSchema.set('timestamps', true);
 
-const Menu = mongoose.model('Menu', menuSchema);
+const Comanda = mongoose.model('Comanda', orderSchema);
 
-module.exports = Menu;
+module.exports = Comanda;

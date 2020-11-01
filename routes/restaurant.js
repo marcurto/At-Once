@@ -175,7 +175,7 @@ router.post('/dishes/edit/:id', function (req, res, next) {
       name: req.body.name,
       dishes: [],
       user: req.userID,
-      restaurant: restaurant._id
+      restaurantMenu: restaurant._id
     };
 
     for (var key in req.body) {
