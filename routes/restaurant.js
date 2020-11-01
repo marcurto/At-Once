@@ -81,7 +81,7 @@ router.post('/dishes/edit/:id', function (req, res, next) {
   // Restaurant profile
   router.get("/restaurant-profile", withAuth, async (req, res, next) => {
     try {
-      const restaruantProfile = await Restaurant.find()
+      const restaruantProfile = await Restaurant.findOne({user:req.userID})
       res.render("restaurant/restaurant-profile", {restaurant: restaruantProfile});
   } catch (error){
       next()
@@ -122,34 +122,26 @@ router.post('/dishes/edit/:id', function (req, res, next) {
       next()
   }
   });
-  router.post("/menu-edit/edit/:id", withAuth, async (req, res, next) => {
-    const updatedMenu = {
+  router.post("/restaurant-profile-edit/:id", withAuth, async (req, res, next) => {
+    const updatedProfile = {
       name: req.body.name,
-      dishes: [],
-      user: req.userID,
-      restaurant: req.userID
+      description: req.body.description,
+      contactInfo: {
+        address: req.body.address,
+        phone: req.body.phone,
+        email: req.body.email,
+        website: req.body.website,
+      },
+      imgPath: req.body.imgPath,
+      user: req.userID
     };
-
-    for (var key in req.body) {
-      if (req.body[key] == "true") {           
-        menutInfo.dishes.push(key);
-      }
-  }
-    Menu.update({_id: req.params.id}, updatedMenu, (err, theMenu) => {
+ 
+    Restaurant.update({_id: req.params.id}, updatedProfile, (err, theRestaurant) => {
       if (err) {return next(err); }
-      res.redirect('/restaurant/menu');
+      res.redirect('/restaurant/restaurant-profile');
     });
-  });
+  })
 
-
-
-
-
-
-
-
-
-  
 
   //Your menu
   router.get("/menu", withAuth, async (req, res, next) => {
@@ -174,11 +166,12 @@ router.post('/dishes/edit/:id', function (req, res, next) {
 
 
   router.post("/menu", withAuth, async (req, res, next) => {
+    const restaurant = await Restaurant.findOne({user: req.userID})
     const menutInfo = {
       name: req.body.name,
       dishes: [],
       user: req.userID,
-      restaurant: req.userID
+      restaurant: restaurant._id
     };
 
     for (var key in req.body) {

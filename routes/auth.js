@@ -9,6 +9,7 @@ const jwt = require("jsonwebtoken");
 const User = require('../models/user');
 
 const withAuth = require("../helpers/middleware");
+const { request } = require('express');
 
 //sign up
 
@@ -19,7 +20,7 @@ res.render("auth/signup",{
 });
 
 router.post("/signup", async (req, res, next) => { 
-    const { username, email, password } = req.body;
+    const { username, email, password, isRestaurant } = req.body;
   
     if (email === "" || password === "" || username === "") {
       res.render("auth/signup", {
@@ -45,11 +46,13 @@ router.post("/signup", async (req, res, next) => {
         username: username,
         email: email,
         password: hashedPass,
+        isRestaurant: isRestaurant
       };
   
       const theUser = new User(userSubmission);
   
       theUser.save((err) => {
+        console.log(err)
         if (err) {
           res.render("auth/signup", {
             errorMessage: "Something went wrong. Try again later.",
@@ -98,7 +101,11 @@ router.post("/signup", async (req, res, next) => {
           expiresIn: "1h",
         });
         res.cookie("token", token, { httpOnly: true });
+        if (userWithoutPass.isRestaurant){
         res.status(200).redirect("restaurant/dashboard-restaurant");
+        } else {
+         res.status(200).redirect('client/dashboard-client')
+        }
       } else {
         res.render("auth/login", {
           errorMessage: "Incorrect password",
