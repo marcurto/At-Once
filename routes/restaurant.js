@@ -211,6 +211,7 @@ router.post('/dishes/edit/:id', function (req, res, next) {
       user: req.userID,
       restaurant: restaurant._id
     };
+    console.log(updatedMenu, 'holi')
 
     for (var key in req.body) {
       if (req.body[key] == "true") {           
