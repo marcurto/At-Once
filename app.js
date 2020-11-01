@@ -29,6 +29,7 @@ var authRouter = require('./routes/auth');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var restaurantRouter = require('./routes/restaurant');
+var clientRouter = require('./routes/client');
 
 
 
@@ -46,7 +47,10 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.use('/', authRouter)
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/client', clientRouter);
+app.use('/', authRouter)
 app.use('/restaurant', restaurantRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

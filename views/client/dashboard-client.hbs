@@ -1,16 +1,11 @@
-<h1>Hello!</h1>
+<label for="categories">Select a restaurant</label>
 
 
-
-<ul>
-    {{#if isUserLoggedIn}}
-    <label for="select-input">Where are you going to eat today?</label>
-        <select name="select-restaurant" id="select-restaurant">
-            {{#each restaurant}}
-            <option value="{{restaurant.name}}"></option>
-            {{/each}}
-        </select>
-    {{/if}}
-    <button>Go!</button>
-    <a href="/logout">Logout</a>
-</ul>
+<form method="POST" action="/client/carta-detail">
+    <select name="restaurantId">
+        {{#each restaurants}}
+        <option value={{this._id}}>{{this.name}}</option>
+        {{/each}}
+    </select>
+    <button type="submit">Continue</button>
+</form>
