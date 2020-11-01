@@ -7,6 +7,7 @@ const dishSchema = new Schema({
   characteristics: String,
   allergies: String,
   category: String,
+  price: Number,
   user: { type: Schema.Types.ObjectId, ref: 'User' },
   user: { type: Schema.Types.ObjectId, ref: 'Restaurant' }
 });

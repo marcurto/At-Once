@@ -25,6 +25,7 @@ router.get("/carta-detail/:id", withAuth, async (req, res, next) => {
     try {
         const rest = await Restaurant.findById(req.params.id);
         const menu = await Menu.findOne({restaurant: rest._id}).populate('dishes');
+        console.log(menu)
         res.render("client/carta-detail",{restaurant: rest, restMenu: menu});
     } catch (error){
         console.log(error);

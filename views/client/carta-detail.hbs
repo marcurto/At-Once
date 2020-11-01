@@ -1,5 +1,19 @@
-{{restaurant.name}}
-{{restMenu.name}}
+
+<h1>Hello {{username}}!</h1>
+
+<form>
+  <div>
+    <label for="table-input"> Table number </label>
+    <input type="number" name="table" id="table-input" />
+  </div>
+</form>
+
+<h2>{{restaurant.name}}</h2>
+<h3>{{restMenu.name}}</h3>
 {{#each restMenu.dishes}}
-{{this.name}}
+<div>
+    <h4>{{this.name}}</h4>
+</div>
+<div>{{this.description}}</div>
+<div>{{this.price}}</div>
 {{/each}}

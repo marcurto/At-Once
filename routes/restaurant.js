@@ -28,6 +28,7 @@ router.post("/dishes", withAuth, async (req, res, next) => {
       characteristics: req.body.characteristics,
       allergies: req.body.allergies,
       category: req.body.category,
+      price: req.body.price,
       user: req.userID,
       restaurant: req.userID
     };
@@ -58,7 +59,8 @@ router.post('/dishes/edit/:id', function (req, res, next) {
     description: req.body.description,
     characteristics: req.body.characteristics,
     allergies: req.body.allergies,
-    category: req.body.category
+    category: req.body.category,
+    price: req.body.price,
   };
   Dish.update({_id: req.params.id}, updatedDish, (err, theDish) => {
     if (err) {return next(err); }
@@ -211,7 +213,7 @@ router.post('/dishes/edit/:id', function (req, res, next) {
 
     for (var key in req.body) {
       if (req.body[key] == "true") {           
-        menutInfo.dishes.push(key);
+        updatedMenu.dishes.push(key);
       }
   }
     Menu.update({_id: req.params.id}, updatedMenu, (err, theMenu) => {
