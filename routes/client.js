@@ -6,6 +6,8 @@ const User = require("../models/user");
 const Restaurant = require("../models/restaurant");
 const Dish = require("../models/dish");
 const Menu = require("../models/menu");
+const Order = require("../models/order");
+
 
 // Client Dashboard
 router.get("/dashboard-client", withAuth, async (req, res, next) => {
@@ -19,6 +21,7 @@ router.get("/dashboard-client", withAuth, async (req, res, next) => {
 });
 
 
+  
 // Carta Detail
 router.get("/carta-detail/:id", withAuth, async (req, res, next) => {
     console.log('hola')
@@ -41,6 +44,34 @@ router.post("/carta-detail", withAuth, async (req, res, next) => {
     }
 });
 
+
+//order-summary
+ router.post("/order-summary", withAuth, (req, res, next) => {
+    const orderInfo = {
+      name: req.body.name,
+      dishes: [],
+      user: req.userID,
+      restaurant: req.userID
+    };
+
+    for (var key in req.body) {
+      if (req.body[key] == "true") {           
+        orderInfo.dishes.push(key);
+      }
+  }
+  
+    const theOrder = new Order(orderInfo);
+    console.log(theOrder , "this is the order")
+    theOrder.save((err) => {
+      if (err) {
+        next(err);
+        return;
+      }
+      res.redirect('/client/order-summary');
+    });
+  });
+
+ 
 
 
 

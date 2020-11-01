@@ -8,8 +8,8 @@ const orderSchema = new Schema({
   restaurant: { type: Schema.Types.ObjectId, ref: 'Restaurant', unique: true}
 });
 
-menuSchema.set('timestamps', true);
+orderSchema.set('timestamps', true);
 
-const Menu = mongoose.model('Menu', menuSchema);
+const Order = mongoose.model('Order', orderSchema);
 
-module.exports = Menu;
+module.exports = Order;
