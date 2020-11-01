@@ -54,7 +54,7 @@
 <p>{{name}}</p>
 
 <button onclick="showEditForm('{{this._id}}')">Edit dish</button>
-<div id="editDiv" style="display: none;">
+<div id={{this._id}} style="display: none;">
     <form method="POST" action="/restaurant/dishes/edit/{{this._id}}" >
     <div>
         <label for="name">Dish name</label>
@@ -121,7 +121,7 @@
         if (document.getElementById(dish).style.display == "none"){
             document.getElementById(dish).style.display = "block";
         } else {
-             document.getElementById(dish").style.display = "none"
+             document.getElementById(dish).style.display = "none"
         }
     }
 
