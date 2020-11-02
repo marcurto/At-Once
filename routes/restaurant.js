@@ -119,10 +119,10 @@ router.post('/dishes/edit/:id', function (req, res, next) {
   // Update profile
   router.get('/restaurant-profile-edit/:id', withAuth, async (req, res, next) => {
     try {
-      const restaurant = await Restaurant.findById({user: req.userID})
+      const restaurant = await Restaurant.findById(req.params.id)
       console.log(restaurant)
 
-      res.render("restaurant/restaurant-profile-edit", {restaurant_id:req.params.id});
+      res.render("restaurant/restaurant-profile-edit", {restaurant:restaurant});
   } catch (error){
       next()
   }
