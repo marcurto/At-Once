@@ -6,11 +6,9 @@ const User = require("../models/user");
 const Restaurant = require("../models/restaurant");
 const Dish = require("../models/dish");
 const Menu = require("../models/menu")
-
 router.get("/dashboard-restaurant", withAuth, (req, res, next) => {
   res.render("restaurant/dashboard-restaurant");
 });
-
 router.get("/dishes", withAuth, async (req, res, next) => {
     try {
         const dishes = await Dish.find({user: req.userID})
@@ -19,7 +17,6 @@ router.get("/dishes", withAuth, async (req, res, next) => {
         next()
     }
 });
-
 //Create dishes
 router.post("/dishes", withAuth, async (req, res, next) => {
     const dishInfo = {
@@ -32,7 +29,6 @@ router.post("/dishes", withAuth, async (req, res, next) => {
       user: req.userID,
       restaurant: req.userID
     };
-  
     const theDish = await new Dish(dishInfo);
     theDish.save((err) => {
       if (err) {
@@ -42,7 +38,6 @@ router.post("/dishes", withAuth, async (req, res, next) => {
       res.redirect('/restaurant/dishes');
     });
   });
-
 //Edit dishes
 router.get('/dishes/edit/:id', withAuth, function (req, res, next) {
   Dish.findOne({ _id: req.params.id }, (err, theDish) => {
@@ -67,7 +62,6 @@ router.post('/dishes/edit/:id', function (req, res, next) {
     res.redirect('/restaurant/dishes');
   });
 });
-
   //Remove dishes
   router.post('/dishes/remove/:id', withAuth, (req, res, next) => {
     Dish.findByIdAndRemove(req.params.id)
@@ -78,8 +72,6 @@ router.post('/dishes/edit/:id', function (req, res, next) {
         next();
     })
   });
-
-
   // Restaurant profile
   router.get("/restaurant-profile", withAuth, async (req, res, next) => {
     try {
@@ -89,7 +81,6 @@ router.post('/dishes/edit/:id', function (req, res, next) {
       next()
   }
   });
-
   router.post("/restaurant-profile", withAuth, async (req, res, next) => {
     const restaurantInfo = {
       name: req.body.name,
@@ -103,7 +94,6 @@ router.post('/dishes/edit/:id', function (req, res, next) {
       imgPath: req.body.imgPath,
       user: req.userID
     };
-  
     const theRestaurant = await new Restaurant(restaurantInfo);
     theRestaurant.save((err) => {
       if (err) {
@@ -113,14 +103,11 @@ router.post('/dishes/edit/:id', function (req, res, next) {
       res.render('restaurant/restaurant-profile', {restaurant: theRestaurant});
     });
   });
-
-
   // Update profile
   router.get('/restaurant-profile-edit/:id', withAuth, async (req, res, next) => {
     try {
       const restaurant = await Restaurant.findById({user: req.userID})
       console.log(restaurant)
-
       res.render("restaurant/restaurant-profile-edit", {restaurant_id:req.params.id});
   } catch (error){
       next()
@@ -139,25 +126,20 @@ router.post('/dishes/edit/:id', function (req, res, next) {
       imgPath: req.body.imgPath,
       user: req.userID
     };
- 
     Restaurant.update({_id: req.params.id}, updatedProfile, (err, theRestaurant) => {
       if (err) {return next(err); }
       res.redirect('/restaurant/restaurant-profile');
     });
   })
-
-
   //Your menu
   router.get("/menu", withAuth, async (req, res, next) => {
     try {
       const menuDishes = await Menu.findOne({user: req.userID}).populate('dishes')
       res.render("restaurant/menu", {menu: menuDishes});
-
   } catch (error){
       next()
   }
   });
-
   // Create menu
   router.get("/menu-create", withAuth, async (req, res, next) => {
       try {
@@ -167,8 +149,6 @@ router.post('/dishes/edit/:id', function (req, res, next) {
           next()
       }
   });
-
-
   router.post("/menu", withAuth, async (req, res, next) => {
     const restaurant = await Restaurant.findOne({user: req.userID})
     const menutInfo = {
@@ -177,13 +157,11 @@ router.post('/dishes/edit/:id', function (req, res, next) {
       user: req.userID,
       restaurantMenu: restaurant._id
     };
-
     for (var key in req.body) {
       if (req.body[key] == "true") {           
         menutInfo.dishes.push(key);
       }
   }
-  
     const theMenu = await new Menu(menutInfo);
     theMenu.save((err) => {
       if (err) {
@@ -193,7 +171,6 @@ router.post('/dishes/edit/:id', function (req, res, next) {
       res.redirect('/restaurant/menu');
     });
   });
-
   // Edit menu
   router.get('/menu-edit/:id', withAuth, async (req, res, next) => {
     try {
@@ -212,7 +189,6 @@ router.post('/dishes/edit/:id', function (req, res, next) {
       restaurant: restaurant._id
     };
     console.log(updatedMenu, 'holi')
-
     for (var key in req.body) {
       if (req.body[key] == "true") {           
         updatedMenu.dishes.push(key);
@@ -223,9 +199,6 @@ router.post('/dishes/edit/:id', function (req, res, next) {
       res.redirect('/restaurant/menu');
     });
   });
-
-
-
   // Remove menu
   router.post('/menu/remove/:id', withAuth, (req, res, next) => {
     console.log(req.params.id)
@@ -237,6 +210,4 @@ router.post('/dishes/edit/:id', function (req, res, next) {
         next();
     })
   });
-
-
 module.exports = router;

@@ -44,6 +44,7 @@ router.post("/carta-detail", withAuth, async (req, res, next) => {
 router.post("/order-summary/:id", withAuth, async (req, res, next) => {
   const orderInfo = {
     table: req.body.table,
+    price: req.body.price,
     dishes: [],
     user: req.userID,
     restaurant: req.params.id
@@ -62,15 +63,36 @@ router.post("/order-summary/:id", withAuth, async (req, res, next) => {
   });
   res.redirect('/client/order-summary/' + theOrder._id);
 });
+
 router.get('/order-summary/:id', withAuth, async (req, res, next) => {
   try {
     console.log(req.params.id);
-    const order = await (await Comanda.findById(req.params.id)).populate('dishes');
+    const order = await Comanda.findById(req.params.id).populate('dishes');
     console.log(order)
     res.render("client/order-summary", { order: order });
   } catch (error) {
     next()
   }
 });
+
+
+router.post("/order-summary/:id", withAuth, async (req, res, next) => {
+  const restaurant = await Restaurant.findOne({user: req.userID})
+  const updatedOrder = {
+    price: req.body.price,
+    user: req.userID,
+    restaurant: restaurant._id
+  };
+
+  console.log(updatedOrder, 'updated order')
+
+
+  Comanda.update({_id: req.params.id}, updatedOrder, (err) => {
+    if (err) {return next(err); }
+   
+  });
+});
+
+
 
 module.exports = router;
