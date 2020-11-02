@@ -83,7 +83,7 @@ router.post('/dishes/edit/:id', function (req, res, next) {
       next()
   }
   });
-  router.post("/restaurant-profile", withAuth, async (req, res, next) => {
+  router.post("/restaurant-profile", uploadCloud.single("imgPath"), withAuth, async (req, res, next) => {
     const restaurantInfo = {
       name: req.body.name,
       description: req.body.description,
@@ -93,7 +93,7 @@ router.post('/dishes/edit/:id', function (req, res, next) {
         email: req.body.email,
         website: req.body.website,
       },
-      imgPath: req.body.imgPath,
+      imgPath: req.file.url,
       user: req.userID
     };
     const theRestaurant = await new Restaurant(restaurantInfo);
@@ -115,7 +115,7 @@ router.post('/dishes/edit/:id', function (req, res, next) {
       next()
   }
   });
-  router.post("/restaurant-profile-edit/:id", withAuth, async (req, res, next) => {
+  router.post("/restaurant-profile-edit/:id", uploadCloud.single("imgPath"), withAuth, async (req, res, next) => {
     const updatedProfile = {
       name: req.body.name,
       description: req.body.description,
@@ -125,7 +125,7 @@ router.post('/dishes/edit/:id', function (req, res, next) {
         email: req.body.email,
         website: req.body.website,
       },
-      imgPath: req.body.imgPath,
+      imgPath: req.file.url,
       user: req.userID
     };
     Restaurant.update({_id: req.params.id}, updatedProfile, (err, theRestaurant) => {
