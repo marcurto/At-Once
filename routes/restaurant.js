@@ -5,7 +5,8 @@ const uploadCloud = require("../config/cloudinary");
 const User = require("../models/user");
 const Restaurant = require("../models/restaurant");
 const Dish = require("../models/dish");
-const Menu = require("../models/menu")
+const Menu = require("../models/menu");
+const Comanda = require("../models/order");
 
 router.get("/dashboard-restaurant", withAuth, (req, res, next) => {
   res.render("restaurant/dashboard-restaurant");
@@ -27,7 +28,7 @@ router.post("/dishes", withAuth, async (req, res, next) => {
       description: req.body.description,
       characteristics: req.body.characteristics,
       allergies: req.body.allergies,
-      category: req.body.category,
+      category: req.body.categories,
       price: req.body.price,
       user: req.userID,
       restaurant: req.userID
@@ -59,7 +60,7 @@ router.post('/dishes/edit/:id', function (req, res, next) {
     description: req.body.description,
     characteristics: req.body.characteristics,
     allergies: req.body.allergies,
-    category: req.body.category,
+    category: req.body.categories,
     price: req.body.price,
   };
   Dish.update({_id: req.params.id}, updatedDish, (err, theDish) => {
@@ -175,7 +176,7 @@ router.post('/dishes/edit/:id', function (req, res, next) {
       name: req.body.name,
       dishes: [],
       user: req.userID,
-      restaurantMenu: restaurant._id
+      restaurant: restaurant._id
     };
 
     for (var key in req.body) {
@@ -238,5 +239,15 @@ router.post('/dishes/edit/:id', function (req, res, next) {
     })
   });
 
+
+  // Orders
+  router.get("/orders", withAuth, async (req, res, next) => {
+    try {
+        const orders = await Comanda.find().populate("dishes")
+        res.render("restaurant/orders", {orders: orders});
+    } catch (error){
+        next()
+    }
+});
 
 module.exports = router;
