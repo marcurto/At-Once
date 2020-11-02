@@ -91,7 +91,7 @@ router.post('/dishes/edit/:id', function (req, res, next) {
   }
   });
 
-  router.post("/restaurant-profile", withAuth, async (req, res, next) => {
+  router.post("/restaurant-profile", uploadCloud.single("imgPath"), withAuth, async (req, res, next) => {
     const restaurantInfo = {
       name: req.body.name,
       description: req.body.description,
@@ -101,7 +101,7 @@ router.post('/dishes/edit/:id', function (req, res, next) {
         email: req.body.email,
         website: req.body.website,
       },
-      imgPath: req.body.imgPath,
+      imgPath: req.file.url,
       user: req.userID
     };
   
@@ -119,15 +119,15 @@ router.post('/dishes/edit/:id', function (req, res, next) {
   // Update profile
   router.get('/restaurant-profile-edit/:id', withAuth, async (req, res, next) => {
     try {
-      const restaurant = await Restaurant.findById({user: req.userID})
+      const restaurant = await Restaurant.findById(req.params.id)
       console.log(restaurant)
 
-      res.render("restaurant/restaurant-profile-edit", {restaurant_id:req.params.id});
+      res.render("restaurant/restaurant-profile-edit", {restaurant: restaurant});
   } catch (error){
       next()
   }
   });
-  router.post("/restaurant-profile-edit/:id", withAuth, async (req, res, next) => {
+  router.post("/restaurant-profile-edit/:id", uploadCloud.single("imgPath"), withAuth, (req, res, next) => {
     const updatedProfile = {
       name: req.body.name,
       description: req.body.description,
@@ -137,11 +137,13 @@ router.post('/dishes/edit/:id', function (req, res, next) {
         email: req.body.email,
         website: req.body.website,
       },
-      imgPath: req.body.imgPath,
+      imgPath: req.file.url,
       user: req.userID
     };
+    
  
-    Restaurant.update({_id: req.params.id}, updatedProfile, (err, theRestaurant) => {
+    
+  Restaurant.update({_id: req.params.id}, updatedProfile, (err, theRestaurant) => {
       if (err) {return next(err); }
       res.redirect('/restaurant/restaurant-profile');
     });
@@ -249,5 +251,19 @@ router.post('/dishes/edit/:id', function (req, res, next) {
         next()
     }
 });
+
+// Remove order
+router.post('/orders/remove/:id', withAuth, (req, res, next) => {
+  Comanda.findByIdAndRemove(req.params.id)
+  .then((removedComanda) => {
+    res.redirect('/restaurant/orders');
+  })
+  .catch((error) => {
+      next();
+  })
+});
+
+
+
 
 module.exports = router;

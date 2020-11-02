@@ -1,5 +1,4 @@
 {{#if restaurant}}
-
 <div id="updateProfile">
 <h1>Profile</h1>
 {{restaurant.name}}
@@ -8,10 +7,11 @@
 {{restaurant.contactInfo.phone}}
 {{restaurant.contactInfo.email}}
 {{restaurant.contactInfo.website}}
+<img src="{{restaurant.imgPath}}" alt="">
 
 <form action="/restaurant/restaurant-profile/edit" method="post">
  
- <button><a href="/restaurant/restaurant-profile-edit/{{restaurant_id}}">Update profile</a></button>
+ <button><a href="/restaurant/restaurant-profile-edit/{{restaurant._id}}">Update profile</a></button>
 
 
 {{else}}
@@ -35,9 +35,11 @@
             <input type="email" name="email" id="remail" placeholder="">
             <label for="website"> Website: </label>
             <input type="text" name="website" id="rwebsite" placeholder="">
-        </div>        <div>
-            <label for="imgPath"> Adress: </label>
-            <img name="imgPath" id="rimg" src="" alt="Restaurant image" />
+        </div>       
+         <div>
+            <label for="imgPath"> Image: </label>
+            <input type="file" name="imgPath">
+           
         </div>        
         <button> Create your profile </button>
     </form>

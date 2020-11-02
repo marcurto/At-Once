@@ -1,32 +1,29 @@
-<form action="/restaurant/restaurant-profile-edit/{{restaurant_id}}" method="POST">
 
-    <form>
+<form action="/restaurant/restaurant-profile-edit/{{restaurant._id}}" method="POST">
+
     <div>
         <label for="name"> Restaurant name </label>
-        <input type="text" name="name" id="rname" placeholder="Restaurant name" value="{{name}}">
+        <input type="text" name="name" id="rname" placeholder="Restaurant name" value="{{restaurant.name}}">
     </div>    
     <div>
         <label for="description"> Description </label>
-        <input type="textarea" name="description" id="rdescription" placeholder="Descrive your restaurant" value="{{description}}">
+        <input type="textarea" name="description" id="rdescription" placeholder="Describe your restaurant" value="{{restaurant.description}}">
     </div>    
     <div>
         <h4>Contact info:</h4>
         <label for="address"> Adress: </label>
-        <input type="text" name="address" id="radress" placeholder="" value="{{address}}">
+        <input type="text" name="address" id="radress" placeholder="" value="{{restaurant.contactInfo.address}}">
         <label for="phone"> Phone number: </label>
-        <input type="number" name="phone" id="rphone" placeholder="" value="{{phone}}">
+        <input type="number" name="phone" id="rphone" placeholder="" value="{{restaurant.contactInfo.phone}}">
         <label for="email"> Email: </label>
-        <input type="email" name="email" id="remail" placeholder="" value="{{email}}">
+        <input type="email" name="email" id="remail" placeholder="" value="{{restaurant.contactInfo.email}}">
         <label for="website"> Website: </label>
-        <input type="text" name="website" id="rwebsite" placeholder="" value="{{website}}">
+        <input type="text" name="website" id="rwebsite" placeholder="" value="{{restaurant.contactInfo.website}}">
     </div>   
      <div>
-        <label for="imgPath"> Adress: </label>
-        <img name="imgPath" id="rimg" src="" alt="Restaurant image" value="{{imgPath}}"/>
+        <label for="imgPath"> Image: </label>
+        <input type="file" name="imgPath" value="{{restaurant.imgPath}}">
+        
     </div>
-<button type="submit">Edit profile</button>
-
-    <button type="submit">Save profile</button>
-
-
-    </form>
+    <button type="submit">Edit profile</button>
+</form>
