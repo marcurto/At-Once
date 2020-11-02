@@ -1,4 +1,5 @@
-<form action="/restaurant/restaurant-profile-edit/{{restaurant}}" method="POST">
+
+<form action="/restaurant/restaurant-profile-edit/{{restaurant._id}}" method="POST">
 
     <div>
         <label for="name"> Restaurant name </label>
@@ -6,7 +7,7 @@
     </div>    
     <div>
         <label for="description"> Description </label>
-        <input type="textarea" name="description" id="rdescription" placeholder="Descrive your restaurant" value="{{restaurant.description}}">
+        <input type="textarea" name="description" id="rdescription" placeholder="Describe your restaurant" value="{{restaurant.description}}">
     </div>    
     <div>
         <h4>Contact info:</h4>
@@ -20,12 +21,9 @@
         <input type="text" name="website" id="rwebsite" placeholder="" value="{{restaurant.contactInfo.website}}">
     </div>   
      <div>
-        <label for="imgPath"> Adress: </label>
-        <img name="imgPath" id="rimg" src="" alt="Restaurant image" value="{{restaurant.imgPath}}"/>
+        <label for="imgPath"> Image: </label>
+        <input type="file" name="imgPath" value="{{restaurant.imgPath}}">
+        
     </div>
-<button type="submit">Edit profile</button>
-
-    <button type="submit">Save profile</button>
-
-
-    </form>
+    <button type="submit">Edit profile</button>
+</form>

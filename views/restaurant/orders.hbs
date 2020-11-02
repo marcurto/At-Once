@@ -8,6 +8,9 @@
     {{name}}
     {{/each}}
 {{price}}<br>
+<form method="POST" action="/restaurant/orders/remove/{{this._id}}">
+    <button type="submit">Remove order</button>
+</form>
 {{/each}}
 
 
