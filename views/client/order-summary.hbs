@@ -1,2 +1,14 @@
-<h3>summary {{order.table}}!</h3>
-
+<h3>summary {{order.table}}!</h3>{{#each order.dishes}}
+{{name}}
+<div class="prices">{{price}}</div>
+{{/each}}<div id= "orderPrice"></div><script>
+function total (){
+var sum = 0;
+getPrices = document.querySelectorAll(".prices")
+for (var i=0; i<getPrices.length; i++){
+    sum += Number(getPrices[i].innerHTML)
+}
+    console.log(sum)
+document.getElementById("orderPrice").innerText = sum
+}
+total();</script>

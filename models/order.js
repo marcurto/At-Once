@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const orderSchema = new Schema({
   table: Number,
+  price: Number,
   dishes: [{type: Schema.Types.ObjectId, ref: 'Dish'}],
   user: { type: Schema.Types.ObjectId, ref: 'User'},
   restaurant: { type: Schema.Types.ObjectId, ref: 'Restaurant'}

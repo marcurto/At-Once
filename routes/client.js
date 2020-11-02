@@ -6,9 +6,9 @@ const User = require("../models/user");
 const Restaurant = require("../models/restaurant");
 const Dish = require("../models/dish");
 const Menu = require("../models/menu");
-const Comanda = require("../models/order");
+const Comanda = require("../models/order");// Client Dashboard
 
-// Client Dashboard
+
 router.get("/dashboard-client", withAuth, async (req, res, next) => {
   try {
     const restaurants = await Restaurant.find()
@@ -39,37 +39,34 @@ router.post("/carta-detail", withAuth, async (req, res, next) => {
   }
 });
 
-// Order
+//order
 router.post("/order-summary/:id", withAuth, async (req, res, next) => {
   const orderInfo = {
     table: req.body.table,
+    price: req.body.price,
     dishes: [],
     user: req.userID,
     restaurant: req.params.id
   };
-
   for (var key in req.body) {
     if (req.body[key] == "true") {
       orderInfo.dishes.push(key);
     }
   }
-
   const theOrder = await new Comanda(orderInfo);
   theOrder.save((err) => {
     if (err) {
       next(err);
       return;
     }
-
   });
   res.redirect('/client/order-summary/' + theOrder._id);
-
 });
 
 router.get('/order-summary/:id', withAuth, async (req, res, next) => {
   try {
     console.log(req.params.id);
-    const order = await (await Comanda.findById(req.params.id)).populate('dishes');
+    const order = await Comanda.findById(req.params.id).populate('dishes');
     console.log(order)
     res.render("client/order-summary", { order: order });
   } catch (error) {
@@ -104,6 +101,9 @@ router.get('/order-summary/:id', withAuth, async (req, res, next) => {
   });
 
  
+
+
+
 
 
 
