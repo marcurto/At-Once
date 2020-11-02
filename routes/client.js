@@ -65,42 +65,27 @@ router.post("/order-summary/:id", withAuth, async (req, res, next) => {
 
 router.get('/order-summary/:id', withAuth, async (req, res, next) => {
   try {
-    console.log(req.params.id);
+  
     const order = await Comanda.findById(req.params.id).populate('dishes');
-    console.log(order)
+   
     res.render("client/order-summary", { order: order });
   } catch (error) {
     next()
   }
 });
 
-//order-summary
- router.post("/order-summary", withAuth, (req, res, next) => {
-    const orderInfo = {
-      name: req.body.name,
-      dishes: [],
-      user: req.userID,
-      restaurant: req.userID
-    };
-
-    for (var key in req.body) {
-      if (req.body[key] == "true") {           
-        orderInfo.dishes.push(key);
-      }
-  }
-  
-    const theOrder = new Order(orderInfo);
-    console.log(theOrder , "this is the order")
-    theOrder.save((err) => {
-      if (err) {
-        next(err);
-        return;
-      }
-      res.redirect('/client/order-summary');
+router.post("/order-summary/:id/update", withAuth, async (req, res, next) => {
+  // const order = await Comanda.findOne({user: req.userID})
+  const orderWithPrice = {
+    price: req.body.price
+  };
+    
+    Comanda.updateOne({_id: req.params.id}, orderWithPrice, (err) => {
+      if (err) {return next(err); }
+      // res.redirect('/restaurant/menu');
     });
-  });
-
- 
+  
+});
 
 
 
