@@ -6,9 +6,9 @@ const User = require("../models/user");
 const Restaurant = require("../models/restaurant");
 const Dish = require("../models/dish");
 const Menu = require("../models/menu");
-const Comanda = require("../models/order");
+const Comanda = require("../models/order");// Client Dashboard
 
-// Client Dashboard
+
 router.get("/dashboard-client", withAuth, async (req, res, next) => {
   try {
     const restaurants = await Restaurant.find()
@@ -38,7 +38,6 @@ router.post("/carta-detail", withAuth, async (req, res, next) => {
     next()
   }
 });
-
 
 //order
 router.post("/order-summary/:id", withAuth, async (req, res, next) => {
@@ -92,6 +91,9 @@ router.post("/order-summary/:id", withAuth, async (req, res, next) => {
    
   });
 });
+
+
+
 
 
 
