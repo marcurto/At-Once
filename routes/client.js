@@ -68,7 +68,7 @@ router.post("/order-summary/:id", withAuth, async (req, res, next) => {
 router.get('/order-summary/:id', withAuth, async (req, res, next) => {
   try {
     console.log(req.params.id);
-    const order = await (await Comanda.findById(req.params.id)).populate('dishes');
+    const order = await Comanda.findById(req.params.id).populate('dishes');
     console.log(order)
     res.render("client/order-summary", { order: order });
   } catch (error) {
