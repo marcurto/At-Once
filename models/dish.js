@@ -9,7 +9,7 @@ const dishSchema = new Schema({
   category: String,
   price: Number,
   user: { type: Schema.Types.ObjectId, ref: 'User' },
-  user: { type: Schema.Types.ObjectId, ref: 'Restaurant' }
+  restaurant: { type: Schema.Types.ObjectId, ref: 'Restaurant' }
 });
 
 dishSchema.set('timestamps', true);
