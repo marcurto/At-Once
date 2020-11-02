@@ -1,4 +1,17 @@
-<h1>List of orders</h1>{{orders}}
+<h1>List of orders</h1>
+
+
+
 {{#each orders}}
-{{price}}
-{{table}}{{/each}}
+<p>Table number: {{table}}</p>
+    {{#each dishes}}
+    {{name}}
+    {{/each}}
+{{price}}<br>
+{{/each}}
+
+
+
+
+
+

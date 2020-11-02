@@ -1,14 +1,29 @@
-<h3>summary {{order.table}}!</h3>{{#each order.dishes}}
+<h3>summary {{order.table}}!</h3>
+
+{{#each order.dishes}}
+
 {{name}}
+
 <div class="prices">{{price}}</div>
-{{/each}}<div id= "orderPrice"></div><script>
+
+{{/each}}
+
+<form action="/client/order-summary/{{order._id}}/update" method="POST">
+    <input id= "orderPrice" value= "" name="price">
+<button type="submit">Finish</button>
+</form>
+
+
+<script>
 function total (){
 var sum = 0;
-getPrices = document.querySelectorAll(".prices")
-for (var i=0; i<getPrices.length; i++){
-    sum += Number(getPrices[i].innerHTML)
-}
+    getPrices = document.querySelectorAll(".prices")
+    for (var i=0; i<getPrices.length; i++){
+        sum += Number(getPrices[i].innerHTML)
+    }
     console.log(sum)
-document.getElementById("orderPrice").innerText = sum
+    document.getElementById("orderPrice").value = sum
 }
-total();</script>
+total();
+
+</script>
