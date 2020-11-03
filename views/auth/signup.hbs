@@ -1,41 +1,38 @@
-<h2> Sign Up </h2>
+<main class="signup-main">
+    <div class="form-backgroud">
+        <h3> Sign Up </h3>
 
-{{#if errorMessage}}
-<p class="error-message">
-    {{ errorMessage }}
-</p>
-{{/if}}
+        {{#if errorMessage}}
+        <p class="error-message">
+            {{ errorMessage }}
+        </p>
+        {{/if}}
 
-<form action="/signup" method="post">
-    <div>
-        <label for="username-input"> Username </label>
-        <input type="text" name="username" id="username-input" placeholder="username">
+        <form action="/signup" method="post">
+            <div>
+                <input type="text" name="username" id="username-input" placeholder="Username">
+            </div>
+
+            <div>
+                <input type="email" name="email" id="email-input" placeholder="Email">
+            </div>
+
+            <div>
+                <input type="password" name="password" id="password-input" placeholder="Password">
+            </div>
+
+            <div>
+                <label for="select-input"> Are you a restaurant or a client?</label><br>
+                <select name="isRestaurant" id="select-input">
+                    <option value=true>I'm a restaurant</option>
+                    <option value=false>I'm a client</option>
+                </select>
+            </div>
+            <div class="btn-center">
+                <button class="black-btn"> Create Account </button>
+            </div>
+        </form>
+
+        <h4 class="subtitle">Already have an account? <a href="/login">Log in.</a></h4>
     </div>
-
-    <div>
-        <label for="email-input"> Email </label>
-        <input type="email" name="email" id="email-input" placeholder="Introduce your email">
-    </div>
-
-    <div>
-        <label for="password-input"> Password </label>
-        <input type="password" name="password" id="password-input" placeholder="••••••••••••">
-    </div>
-
-    <div>
-        <label for="select-input"> Are you a restaurant or a client?</label>
-        <select name="isRestaurant" id="select-input">
-            <option value=true>I'm a restaurant</option>
-            <option value=false>I'm a client</option>
-        </select>
-    </div>
-
-    <button> Create New Account </button>
-</form>
-
-<p>
-    Already have an account?
-    <a href="/login">
-        Log in.
-    </a>
-</p>
+</main>
