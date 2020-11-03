@@ -1,16 +1,32 @@
-<h1>Profile</h1>
+<header class="restaurant-headers restaurant-dashboard">
+    <div class="restaurant-dashboard-text">
+        <h2>Dashboard</h2>
+        <h5>Manage your dishes, <br>menu and profile.</h5>
+    </div>
+</header>
 
+<main class="center-div main-dashboard">
+   
+        {{#if isUserLoggedIn}}
+        <h3>Your Profile</h3>
+        <p>Personalize your profile and set all the information that you want to show to your costumers.</p>
+        <button class="fashion-button mb10"><a href="/restaurant/restaurant-profile">Edit profile<hr></a></button>
+     
+        <h3>Your Dishes</h3>
+        <p>Create, edit and remove your dishes. Make a list of dishes and then personalize your menu.</p>
+         <button class="fashion-button mb10"><a href="/restaurant/dishes">Edit dishes<hr></a></button>
+     
+        <h3>Your Menu</h3>
+        <p>Create the menu that you want to offer to your costumers. You can modify it whenever you want!</p>
+         <button class="fashion-button mb10"><a href="/restaurant/menu">Edit menu<hr></a></button>
+    
+        <h3>Your Orders</h3>
+        <p>Check all the orders you have received from each table and once you served them you can delete them.</p>
+        <button class="fashion-button mb10"> <a href="/restaurant/orders">Manage orders<hr></a></button>
 
+        {{else}}
+         <button class="fashion-button"><a href="/signup"> Sign Up </a> </button>
+         <button class="black-btn"><a href="/login"> Log In </a></button>
+        {{/if}}
 
-<ul>
-    {{#if isUserLoggedIn}}
-    <li> <a href="/restaurant/dishes">Your dishes</a></li>
-    <li> <a href="/restaurant/menu">Your menu</a></li>
-    <li> <a href="/restaurant/orders">Your orders</a></li>
-    <li> <a href="/restaurant/restaurant-profile">Your profile</a></li>
-    <li> <a href="/logout"> Log Out </a></li>
-    {{else}}
-    <li> <a href="/signup"> Sign Up </a> </li>
-    <li> <a href="/login"> Log In </a> </li>
-    {{/if}}
-</ul>
+</main>
