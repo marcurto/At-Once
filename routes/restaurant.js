@@ -141,8 +141,7 @@ router.post('/dishes/edit/:id', function (req, res, next) {
       user: req.userID
     };
     
- 
-    
+     
   Restaurant.update({_id: req.params.id}, updatedProfile, (err, theRestaurant) => {
       if (err) {return next(err); }
       res.redirect('/restaurant/restaurant-profile');
