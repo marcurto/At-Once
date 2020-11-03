@@ -10,32 +10,32 @@ body{
 
 h1{
   font-family: 'Playfair Display', serif;
-  font-size: 6.8em;
+  font-size: 5em;
   font-weight: 700;
   line-height: 1.3em;
-  margin: 25px 0px;
+  margin: 15px 0px;
 }
 
 h2{
   font-family: 'Playfair Display', serif;
-  font-size: 5.2em;
+  font-size: 4.2em;
   font-weight: 700;
   line-height: 1.3em;
-  padding: 25px 0px;
+  padding: 10px 0px;
+  margin-bottom: 0px !important;
 }
 
 h3{
   font-family: 'Playfair Display', serif;
-  font-size: 3.8em;
+  font-size: 1.8em;
   font-weight: 700;
   line-height: 1.3em;
-  margin: 25px 0px;
 }
 
 h4{
   font-size: 1.7em;
   font-weight: 400;
-  margin: 15px 0px;
+  margin: 8px 0px;
 }
 
 h5{
@@ -43,7 +43,7 @@ h5{
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin: 15px 0px;
+  margin: 8px 0px;
 }
 
 h6{
@@ -52,15 +52,19 @@ h6{
   color: #909090;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin: 15px 0px;
+  margin: 8px 0px;
 }
 
 p{
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: 400;
   margin: 10px 0px;
-  line-height: 25px;
+  line-height: 18px;
   color: #383838;
+ 
+}
+.letter-space{
+  letter-spacing: 1px;
 }
 /* Margin-top */
 .mt10{
@@ -189,8 +193,21 @@ p{
 .pb100{
   padding-bottom: 100px;
 }
+.center-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
+}
 
 /* Elementos comunes */
+header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 form{
   width: 80%;
 }
@@ -214,8 +231,7 @@ input{
  letter-spacing: 1px;
  box-sizing: border-box;
 }
-input::selection{
-}
+
 select{
   font-family: 'Open Sans', sans-serif;
   display: block;
@@ -254,7 +270,12 @@ select{
   border: none;
   text-align: center;
   /* transform-origin: left; */
-
+}
+.black-btn a{
+  color: white
+}
+.black-btn a:hover{
+  text-decoration: none;
 }
 
 /* .black-btn:hover{
@@ -262,6 +283,36 @@ select{
   -moz-transform: rotateY(-90deg);
   transform: rotateY(-90deg);
 } */
+
+.fashion-button{
+  border-style: none;
+  background-color: transparent;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin: 0px 15px 0px;
+  display: flex;
+}
+.fashion-button a{
+  color: black;
+  font-weight: 600;
+}
+.fashion-button a:hover{
+  text-decoration: none;
+}
+.fashion-button hr{
+  border: black 1px solid ;
+  width: 20px;
+  margin: 3px auto 25px auto;
+  transition: 0.5s ease-in-out;
+  align-items: center;
+  justify-content: center;
+}
+.fashion-button:hover hr{
+  border: black 1px solid ;
+  width: 100%;
+  margin: 3px auto 25px auto;
+}
 .btn-center{
   display: flex;
   justify-content: center;
@@ -270,12 +321,39 @@ select{
   font-size: 12px;
   margin-top: 30px;
 }
-a{
-  color: black;
-  font-weight: 600;
+
+
+
+/* Headers */
+.restaurant-dashboard{
+  height: 30vh;
+  background-image: url('/images/test1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
+ 
 }
-a:hover{
-  color:rgb(97, 96, 96);
+.restaurant-dashboard-text{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.main-dashboard{
+  height: 70vh;
+  text-align: center;
+  padding: 0px 25px;
+  margin-top: 10px;
+}
+.main-dashboard > h3{
+  margin-bottom: 0px;
+}
+.main-dashboard > p{
+  margin-top: 5px;
 }
 
 /* Sign up */
@@ -289,7 +367,6 @@ a:hover{
   display: flex;
   align-items: center;
   justify-content: center;
-  
 }
 
 .form-backgroud{
@@ -305,3 +382,18 @@ a:hover{
 .form-backgroud input{
   border: none
 }
+
+/* Log In */
+.login-main{
+  height: 100vh;
+  background-image: url('/images/login.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
