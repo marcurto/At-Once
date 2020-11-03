@@ -11,7 +11,7 @@ cloudinary.config({
 var storage = cloudinaryStorage({
   cloudinary: cloudinary,
   folder: 'restaurant-images', // The name of the folder in cloudinary
-  allowedFormats: ['jpg', 'png'],
+  allowedFormats: ['jpg', 'png']
 });
 
 const uploadCloud = multer({ storage: storage });
