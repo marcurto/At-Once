@@ -1,52 +1,89 @@
-<h1>Hello {{username}}!</h1>
+<header class="restaurant-headers detail-dashboard">
+
+</header>
 
 
-<h2>{{restaurant.name}}</h2>
+<main class="center-div mb100 mt30">
+<h3>Welcome to {{restaurant.name}}</h3>
 
-<form action="/client/order-summary/{{restaurant._id}}" method="POST">
+<form class="white-back-form" action="/client/order-summary/{{restaurant._id}}" method="POST">
+
 
     <div>
-        <label for="table"> Table number </label>
+        <label for="table"> Introduce you table number </label>
         <input type="number" name="table" id="table-input" />
     </div>
     
-<h3>{{restMenu.name}}</h3>
+<h3 class="ta mt30">{{restMenu.name}}</h3>
 
-    <h4>To start with</h4>
+    <h6 class="mt20 ta">To start with</h6>
     {{#each restMenu.dishes}}
     {{#ifCond this.category '==' "starters"}}
-    <div>
-        <input class="input" type="checkbox" name={{this._id}} value="true">
-        <label for="selectedDish">{{this.name}}</label>
+    <div class="element user-element">
+        <div style="display: flex;">
+        <div class="element-row user-element" style="justify-content: flex-start;">
+            <input class="input" type="checkbox" name={{this._id}} value="true">
+            <label for="selectedDish">{{this.name}}</label>
+        </div>
+        <div>
+            <h4>{{this.price}}<span>€</span></h4>
+        </div>
+        </div>
+        <hr>
+           <div class="element-row">
+                <h6>{{this.description}}</h6>
+           </div>
+                <span style="font-size: 7px; margin-top:3px; text-transform: uppercase">This dish can contain: {{this.allergies}}</span>
     </div>
-    <div>{{this.description}}</div>
-    <div>{{this.price}}</div>
     {{/ifCond}}
     {{/each}}
 
-    <h4>Main dishes</h4>
+    <h6 class="mt20 ta">Main dishes</h6>
     {{#each restMenu.dishes}}
     {{#ifCond this.category '==' "main"}}
-    <div>
-        <input class="input" type="checkbox" name={{this._id}} value="true">
-        <label for="selectedDish">{{this.name}}</label>
+     <div class="element user-element">
+        <div style="display: flex;">
+        <div class="element-row user-element" style="justify-content: flex-start;">
+            <input class="input" type="checkbox" name={{this._id}} value="true">
+            <label for="selectedDish">{{this.name}}</label>
+        </div>
+        <div>
+            <h4>{{this.price}}<span>€</span></h4>
+        </div>
+        </div>
+        <hr>
+           <div class="element-row">
+                <h6>{{this.description}}</h6>
+           </div>
+                <span style="font-size: 7px; margin-top:3px; text-transform: uppercase">This dish can contain: {{this.allergies}}</span>
     </div>
-    <div>{{this.description}}</div>
-    <div>{{this.price}}</div>
     {{/ifCond}}
     {{/each}}
 
-    <h4>Desserts</h4>
+    <h6 class="mt20 ta">Desserts</h6>
     {{#each restMenu.dishes}}
     {{#ifCond this.category '==' "desserts"}}
-    <div>
-        <input class="input" type="checkbox" name={{this._id}} value="true">
-        <label for="selectedDish">{{this.name}}</label>
+    <div class="element user-element">
+        <div style="display: flex;">
+        <div class="element-row user-element" style="justify-content: flex-start;">
+            <input class="input" type="checkbox" name={{this._id}} value="true">
+            <label for="selectedDish">{{this.name}}</label>
+        </div>
+        <div>
+            <h4>{{this.price}}<span>€</span></h4>
+        </div>
+        </div>
+        <hr>
+           <div class="element-row">
+                <h6>{{this.description}}</h6>
+           </div>
+                <span style="font-size: 7px; margin-top:3px; text-transform: uppercase">This dish can contain: {{this.allergies}}</span>
     </div>
-    <div>{{this.description}}</div>
-    <div>{{this.price}}</div>
     {{/ifCond}}
     {{/each}}
-
-    <button type="submit">Order</button>
+<div class="center-div mt30">
+    <button class="black-btn" type="submit">Order</button>
+    </div>
 </form>
+
+</main>
