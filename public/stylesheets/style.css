@@ -128,6 +128,68 @@ p {
 .mb100 {
   margin-bottom: 100px;
 }
+/* Margin-left */
+.ml10 {
+  margin-left: 10px;
+}
+.ml20 {
+  margin-left: 20px;
+}
+.ml30 {
+  margin-left: 30px;
+}
+.ml40 {
+  margin-left: 40px;
+}
+.ml50 {
+  margin-left: 50px;
+}
+.ml60 {
+  margin-left: 60px;
+}
+.ml70 {
+  margin-left: 70px;
+}
+.ml80 {
+  margin-left: 80px;
+}
+.ml90 {
+  margin-left: 90px;
+}
+.mr100 {
+  margin-left: 100px;
+}
+/* Margin-right */
+.mr10 {
+  margin-right: 10px;
+}
+.mr20 {
+  margin-right: 20px;
+}
+.mr30 {
+  margin-right: 30px;
+}
+.mr40 {
+  margin-right: 40px;
+}
+.mr50 {
+  margin-right: 50px;
+}
+.mr60 {
+  margin-right: 60px;
+}
+.mr70 {
+  margin-right: 70px;
+}
+.mr80 {
+  margin-right: 80px;
+}
+.mr90 {
+  margin-right: 90px;
+}
+.mr100 {
+  margin-right: 100px;
+}
 
 /* Padding-top */
 .pt10 {
@@ -192,8 +254,106 @@ p {
 .pb100 {
   padding-bottom: 100px;
 }
+
+/* Padding left */
+.pt10 {
+  padding-top: 10px;
+}
+.pt20 {
+  padding-top: 20px;
+}
+.pt30 {
+  padding-top: 30px;
+}
+.pt40 {
+  padding-top: 40px;
+}
+.pt50 {
+  padding-top: 50px;
+}
+.pt60 {
+  padding-top: 60px;
+}
+.pt70 {
+  padding-top: 70px;
+}
+.pt80 {
+  padding-top: 80px;
+}
+.pt90 {
+  padding-top: 90px;
+}
+.pt100 {
+  padding-top: 100px;
+}
+
+/* Padding-left */
+.pl10 {
+  padding-left: 10px;
+}
+.pl20 {
+  padding-left: 20px;
+}
+.pl30 {
+  padding-left: 30px;
+}
+.pl40 {
+  padding-left: 40px;
+}
+.pl50 {
+  padding-left: 50px;
+}
+.pl60 {
+  padding-left: 60px;
+}
+.pl70 {
+  padding-left: 70px;
+}
+.pl80 {
+  padding-left: 80px;
+}
+.pl90 {
+  padding-left: 90px;
+}
+.pl100 {
+  padding-left: 100px;
+}
+/* Padding-rigth */
+.pr10 {
+  padding-right: 10px;
+}
+.pr20 {
+  padding-right: 20px;
+}
+.pr30 {
+  padding-right: 30px;
+}
+.pr40 {
+  padding-right: 40px;
+}
+.pr50 {
+  padding-right: 50px;
+}
+.pr60 {
+  padding-right: 60px;
+}
+.pr70 {
+  padding-right: 70px;
+}
+.pr80 {
+  padding-right: 80px;
+}
+.pr90 {
+  padding-right: 90px;
+}
+.pr100 {
+  padding-right: 100px;
+}
 .w100{
   width: 100%;
+}
+.ta{
+  text-align: center;
 }
 .center-div {
   display: flex;
@@ -228,7 +388,7 @@ input {
   font-size: 11px;
   background-color: white;
   color: #4e4e4e;
-  text-transform: uppercase;
+  
   font-weight: 400;
   letter-spacing: 1px;
   box-sizing: border-box;
@@ -242,7 +402,7 @@ select {
   font-size: 11px;
   background-color: white;
   color: #4e4e4e;
-  text-transform: uppercase;
+ 
   font-weight: 400;
   letter-spacing: 1px;
   appearance: none;
@@ -286,6 +446,35 @@ select {
   transform: rotateY(-90deg);
 } */
 
+.white-btn{
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  line-height: 14px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: rgb(51, 51, 51);
+  background-color: transparent;
+  border: 1px solid black ;
+  font-size: 10px;
+  padding: 3px 5px;
+  text-align: center;
+}
+.grey-btn{
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 7px;
+  line-height: 14px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: rgb(51, 51, 51);
+  background-color: rgb(233, 233, 233);
+  border:none ;
+  padding: 3px 5px;
+  text-align: center;
+}
+
 .fashion-button {
   border-style: none;
   background-color: transparent;
@@ -323,7 +512,9 @@ select {
   font-size: 12px;
   margin-top: 30px;
 }
-
+.nav-link {
+  color: black !important;
+}
 /* Headers */
 .restaurant-headers {
   height: 30vh;
@@ -338,6 +529,14 @@ select {
 .dishes-dashboard {
   background-image: url("/images/dishes2.jpg");
   background-position-y: top 35%;
+}
+.menu-dashboard{
+  background-image: url("/images/menu.jpg");
+  background-position-y: top 20%;
+}
+.orders-dashboard{
+  background-image: url("/images/orders.jpg");
+  background-position-y: bottom 40%;
 }
 .restaurant-dashboard-text {
   width: 100%;
@@ -403,7 +602,8 @@ select {
 
 /* Restaurant forms */
 .white-back-form input {
-  height: 10px;
+  border: none;
+  height: 8px;
   border-bottom: 1px solid black;
   padding: 15px 0px 15px 5px;
 }
@@ -419,14 +619,211 @@ select {
   display: flex;
   width: 100%;
   flex-direction: column;
+  padding: 10px 40px;
 }
-.elment-row {
+.element-row {
   display: flex;
   width: 100%;
+  height: 20px;
   justify-content: space-between;
+  align-items: center;
 }
-.elment-row-left{
+.element hr{
+  margin: 0px;
+  width: 90%;
+  border: 1px #383838 dashed;
+}
+.element-row h5{
+  margin: 0px;
+  align-items: center;
+}
+.element-row h6{
+  text-transform: none;
+  margin-top: 15px
+}
+.element-row span{
+  font-size: 12px;
+}
+.element-row-left{
   display: flex;
   width: 100%;
   justify-content: start;
+}
+
+/* Create menu */
+.checkbox{
+  display: flex; 
+  align-items:center;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+.checkbox input{
+  width: 10%;
+  margin-bottom: 0px;
+}
+.checkbox label{
+  font-size: 1.3em;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0px;
+}
+
+/* Orders Restaurant */
+.orders-display{
+  background-color: white;
+}
+.orders-display h4{
+  margin-top: 10px;
+}
+.orders-display hr{
+  margin:5px 0px;
+  
+}
+.orders-display button{
+  font-size: 8px;
+}
+
+/* Perfil */
+.perfil-main{
+  height: 100vh;
+  background-image: url("/images/profile.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#updateProfile{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  width: 100%;
+  height: 80%;
+  margin: 50px 40px;
+  padding: 50px 40px;
+}
+#updateProfile h2 {
+  line-height: 40px;
+}
+#updateProfile h4 {
+  font-size: 14px;
+  line-height: 18px;
+}
+#updateProfile img{
+  height: 50px;
+  margin: 20px 0px;
+}
+
+/* Select restaurant */
+.select-main{
+  height: 100vh;
+  background-image: url("/images/profile.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0px 30px;
+}
+.select-main img{
+  height: 150px;
+}
+.select-main label{
+  font-size: 1.3em;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 8px 0px;
+}
+
+/* Carta detail */
+.detail-dashboard{
+  background-image: url("/images/carta.jpg");
+}
+.user-element{
+  width: 100%;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.user-element > input{
+  width: 20px;
+  margin-bottom: 0px;
+margin-right: 5px;
+}
+.user-element > label{
+  margin-top: 0px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.user-element h4{
+  margin: 0px
+}
+.user-element span{
+  font-size: 12px;
+}
+/* Summary */
+.summary-dashboard{
+  background-image: url("/images/dashboard.jpg");
+}
+.total-price-input input{
+  border: none;
+  padding:0px;
+  margin-top: 0px;
+  text-align: center;
+  font-size: 17px;
+}
+.bottom-dashed{
+  border-bottom: black 1px dashed;
+  width: 100%;
+}
+.prices{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 12px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+/* User nav */
+.summary-dashboard{
+display: flex;
+justify-content: flex-start;
+}
+.user-nav{
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.76);
+  height: 40px;
+  width: 100%;
+}
+
+.logo-nav img{
+  height: 40px;
+  padding-left: 10px;
+}
+.text-nav{
+display: flex;
+align-items: center;
+}
+.text-nav a{
+  margin-right: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 9px;
 }
