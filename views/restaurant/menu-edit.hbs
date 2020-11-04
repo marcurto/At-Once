@@ -35,15 +35,20 @@
     </div>
 </header>
 
-<main class="center-div mb100">
-<form action="/restaurant/menu-edit/edit/{{menu_id}}" method="POST">
-    
+<main class="center-div mb100 mt40">
+<form class="white-back-form" action="/restaurant/menu-edit/edit/{{menu_id}}" method="POST">
+    <label class="mb10" for="name">Menu name</label>
     <input for="name" name="name" type="text" value="{{name}}">
+    <label class="mb20 mt20">Select the dishes for your menu.</label>
     {{#each dishes}}
+      <div class="checkbox">
     <input class="input" type="checkbox" name={{id}} value="true">
     <label for="selectedDish">{{name}}</label>
+    </div>
     {{/each}}
-<button type="submit">Edit menu</button>
+      <div class="center-div mt30">
+<button class="black-btn" type="submit">Edit menu</button>
+</div>
 </form>
 
 </main>

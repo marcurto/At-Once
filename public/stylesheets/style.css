@@ -352,6 +352,9 @@ p {
 .w100{
   width: 100%;
 }
+.ta{
+  text-align: center;
+}
 .center-div {
   display: flex;
   align-items: center;
@@ -446,7 +449,6 @@ select {
 .white-btn{
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
-  font-size: 11px;
   line-height: 14px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -510,7 +512,9 @@ select {
   font-size: 12px;
   margin-top: 30px;
 }
-
+.nav-link {
+  color: black !important;
+}
 /* Headers */
 .restaurant-headers {
   height: 30vh;
@@ -529,6 +533,10 @@ select {
 .menu-dashboard{
   background-image: url("/images/menu.jpg");
   background-position-y: top 20%;
+}
+.orders-dashboard{
+  background-image: url("/images/orders.jpg");
+  background-position-y: bottom 40%;
 }
 .restaurant-dashboard-text {
   width: 100%;
@@ -659,4 +667,163 @@ select {
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-top: 0px;
+}
+
+/* Orders Restaurant */
+.orders-display{
+  background-color: white;
+}
+.orders-display h4{
+  margin-top: 10px;
+}
+.orders-display hr{
+  margin:5px 0px;
+  
+}
+.orders-display button{
+  font-size: 8px;
+}
+
+/* Perfil */
+.perfil-main{
+  height: 100vh;
+  background-image: url("/images/profile.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#updateProfile{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  width: 100%;
+  height: 80%;
+  margin: 50px 40px;
+  padding: 50px 40px;
+}
+#updateProfile h2 {
+  line-height: 40px;
+}
+#updateProfile h4 {
+  font-size: 14px;
+  line-height: 18px;
+}
+#updateProfile img{
+  height: 50px;
+  margin: 20px 0px;
+}
+
+/* Select restaurant */
+.select-main{
+  height: 100vh;
+  background-image: url("/images/profile.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0px 30px;
+}
+.select-main img{
+  height: 150px;
+}
+.select-main label{
+  font-size: 1.3em;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 8px 0px;
+}
+
+/* Carta detail */
+.detail-dashboard{
+  background-image: url("/images/carta.jpg");
+}
+.user-element{
+  width: 100%;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.user-element > input{
+  width: 20px;
+  margin-bottom: 0px;
+margin-right: 5px;
+}
+.user-element > label{
+  margin-top: 0px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.user-element h4{
+  margin: 0px
+}
+.user-element span{
+  font-size: 12px;
+}
+/* Summary */
+.summary-dashboard{
+  background-image: url("/images/dashboard.jpg");
+}
+.total-price-input input{
+  border: none;
+  padding:0px;
+  margin-top: 0px;
+  text-align: center;
+  font-size: 17px;
+}
+.bottom-dashed{
+  border-bottom: black 1px dashed;
+  width: 100%;
+}
+.prices{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 12px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+/* User nav */
+.summary-dashboard{
+display: flex;
+justify-content: flex-start;
+}
+.user-nav{
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.76);
+  height: 40px;
+  width: 100%;
+}
+
+.logo-nav img{
+  height: 40px;
+  padding-left: 10px;
+}
+.text-nav{
+display: flex;
+align-items: center;
+}
+.text-nav a{
+  margin-right: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 9px;
 }

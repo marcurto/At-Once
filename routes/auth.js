@@ -98,7 +98,7 @@ router.post("/signup", async (req, res, next) => {
         const userWithoutPass = await User.findOne({ email }).select("-password");
         const payload = { userID: userWithoutPass._id };
         const token = jwt.sign(payload, process.env.SECRET_SESSION, {
-          expiresIn: "1h",
+          expiresIn: "7h",
         });
         res.cookie("token", token, { httpOnly: true });
         if (userWithoutPass.isRestaurant){

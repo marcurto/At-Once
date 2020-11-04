@@ -1,52 +1,88 @@
+<nav class="navbar navbar-expand-md navbar-black bg-white ">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2 "></div>
+    <div class="mx-auto order-0">
+        <a class="navbar-brand mx-auto" href="#"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"
+                style="color:black;rotate: 90deg; letter-spacing: -2.5px; text-align: center;">|||</span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            <li class="letter-space nav-item ">
+                <a class="nav-link" href="/restaurant/restaurant-profile">PROFILE</a>
+            </li>
+            <li class="letter-space nav-item">
+                <a class="nav-link" href="/restaurant/dishes">DISHES</a>
+            </li>
+            <li class="letter-space nav-item">
+                <a class="nav-link" href="/restaurant/menu">MENU</a>
+            </li>
+            <li class="letter-space nav-item">
+                <a class="nav-link" href="/restaurant/orders">ORDERS</a>
+            </li>
+            <li class="letter-space nav-item">
+                <a class="nav-link" href="/logout">LOG OUT</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<main class="center-div">
+<div class="perfil-main">
 {{#if restaurant}}
-<div id="updateProfile">
-<h1>Profile</h1>
-{{restaurant.name}}
-{{restaurant.description}}
-{{restaurant.contactInfo.address}}
-{{restaurant.contactInfo.phone}}
-{{restaurant.contactInfo.email}}
-{{restaurant.contactInfo.website}}
-<img src="{{restaurant.imgPath}}" alt="">
+<div id="updateProfile" class="center-div mt30 pr50 pl50 ta">
+    <h2 class="pl50 pr50 ta">{{restaurant.name}}</h2>
+    <img src="{{restaurant.imgPath}}" alt="">
 
-<form action="/restaurant/restaurant-profile/edit" method="post">
- 
- <button><a href="/restaurant/restaurant-profile-edit/{{restaurant._id}}">Update profile</a></button>
+    <h4>{{restaurant.description}}</h4>
 
+    <h6 class="mt30">You can find us here:</h6>
+    <h5>{{restaurant.contactInfo.address}}
+    <h5>{{restaurant.contactInfo.phone}}</h5>
+    <h5>{{restaurant.contactInfo.email}}</h5>
+    <h5>{{restaurant.contactInfo.website}}</h5>
+
+    <form action="/restaurant/restaurant-profile/edit" enctype="multipart/form-data" method="post">
+    <div class="center-div mt30">
+    <button class="black-btn"><a href="/restaurant/restaurant-profile-edit/{{restaurant._id}}">Update profile</a></button></div>
+    </form>
 
 {{else}}
-
-<div id="createProfile">
-    <h1>Crear perfil</h1>
-    <form action="/restaurant/restaurant-profile" method="post" enctype="multipart/form-data">
+</div>
+<div id="createProfile" class="center-div">
+    <h2>Crear perfil</h2>
+    <form class="white-back-form" action="/restaurant/restaurant-profile" method="post" enctype="multipart/form-data">
         <div>
             <label for="name"> Restaurant name </label>
             <input type="text" name="name" id="rname" placeholder="Restaurant name">
-        </div>        <div>
+        </div>       
+         <div>
             <label for="description"> Description </label>
-            <input type="textarea" name="description" id="rdescription" placeholder="Descrive your restaurant">
-        </div>        <div>
-            <h4>Contact info:</h4>
+            <input type="textarea" name="description" id="rdescription" placeholder="Describe your restaurant">
+        </div>        
+        <div>
             <label for="address"> Adress: </label>
-            <input type="text" name="address" id="radress" placeholder="">
+            <input type="text" name="address" id="radress" placeholder="Introduce your adress">
             <label for="phone"> Phone number: </label>
-            <input type="number" name="phone" id="rphone" placeholder="">
+            <input type="number" name="phone" id="rphone" placeholder="Introduce your phone">
             <label for="email"> Email: </label>
-            <input type="email" name="email" id="remail" placeholder="">
+            <input type="email" name="email" id="remail" placeholder="Introduce your website">
             <label for="website"> Website: </label>
-            <input type="text" name="website" id="rwebsite" placeholder="">
+            <input type="text" name="website" id="rwebsite" placeholder="Introduce your website">
         </div>       
          <div>
             <label for="imgPath"> Image: </label>
-            <input type="file" name="imgPath">
+            <input style="height: 40px; border: none" type="file" name="imgPath">
            
-        </div>        
-        <button> Create your profile </button>
+        </div>  
+        <div class="center-div mt30">  
+        <button class="black-btn"> Create your profile </button>
+        </div>    
     </form>
 </div>
 
 
 {{/if}}
 
-
-<a href="/restaurant/dashboard-restaurant">Back</a>
+</main>

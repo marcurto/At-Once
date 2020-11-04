@@ -43,7 +43,7 @@
     </div>
     <h3>{{menu.name}}</h3>
 
-    
+  
     <h6 class="mt20">To start with</h6>
     {{#each menu.dishes}}
     {{#ifCond category '==' "starters"}}
@@ -56,14 +56,15 @@
             <div class="element-row">
                 <h6>{{description}}</h6>
             </div>
+        </div>
             {{/ifCond}}
             {{/each}}
-        </div>
+
 
     <h6 class="mt20">Main dishes</h6>
     {{#each menu.dishes}}
     {{#ifCond this.category '==' "main"}}
-            <div class="element">
+        <div class="element">
             <div class="element-row">
                 <h5>{{name}}</h5>
                 <h4>{{price}}<span>€</span></h4>
@@ -72,14 +73,14 @@
             <div class="element-row">
                 <h6>{{description}}</h6>
             </div>
+        </div>
             {{/ifCond}}
             {{/each}}
-        </div>
 
     <h6 class="mt20">Desserts</h6>
     {{#each menu.dishes}}
     {{#ifCond category '==' "desserts"}}
-            <div class="element">
+        <div class="element">
             <div class="element-row">
                 <h5>{{name}}</h5>
                 <h4>{{price}}<span>€</span></h4>
@@ -88,9 +89,9 @@
             <div class="element-row">
                 <h6>{{description}}</h6>
             </div>
+        </div>
             {{/ifCond}}
             {{/each}}
-        </div>
 
 <div class="center-div mt30" style="flex-direction: row; width: 100%; align-items: center">
     <div>
