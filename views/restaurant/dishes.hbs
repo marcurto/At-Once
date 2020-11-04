@@ -10,19 +10,19 @@
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
             <li class="letter-space nav-item ">
-                <a class="nav-link" href="index.html">HOME</a>
+                <a class="nav-link" href="/restaurant/restaurant-profile">PROFILE</a>
             </li>
             <li class="letter-space nav-item">
-                <a class="nav-link" href="discover.html">DISCOVER</a>
+                <a class="nav-link" href="/restaurant/dishes">DISHES</a>
             </li>
             <li class="letter-space nav-item">
-                <a class="nav-link" href="faqs.html">FAQS</a>
+                <a class="nav-link" href="/restaurant/menu">MENU</a>
             </li>
             <li class="letter-space nav-item">
-                <a class="nav-link" href="login.html">LOG IN</a>
+                <a class="nav-link" href="/restaurant/orders">ORDERS</a>
             </li>
             <li class="letter-space nav-item">
-                <a class="nav-link" href="signup.html">REGISTER</a>
+                <a class="nav-link" href="/logout">LOG OUT</a>
             </li>
         </ul>
     </div>
@@ -37,8 +37,23 @@
 
 <main class="center-div mb100">
     <div class="form-backgroud white-back-form">
-        <h3 class="mt30">Create your dish</h3>
-        <form action="/restaurant/dishes" method="post">
+        <h3 class="mt30">Your dishes list</h3>
+        <button type="button" class="black-btn mb30 mt10" data-toggle="modal" data-target="#exampleModal">
+        Create dish
+        </button>
+    </div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create your dish</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body center-div">
+           <form class="white-back-form" action="/restaurant/dishes" method="post">
             <div>
                 <label for="name">Dish name:</label>
                 <input type="text" name="name" id="name" placeholder="Dish name">
@@ -88,29 +103,35 @@
                 <input type="number" step="any" name="price" id="price-input" />
             </div>
             <div class="btn-center mt20">
-                <button class="black-btn"> Create dish </button>
+                <button class="black-btn" > Save dish </button>
             </div>
         </form>
-
+      </div>
+      
     </div>
+  </div>
+</div>
+   
+
+ <!--- Edit and remove -->
 
     <div class="w100">
         {{#each dishes}}
         <div class="element">
-            <div class="elment-row">
-                <p>{{name}}</p>
-                <p>{{price}}</p>
+            <div class="element-row">
+                <h5>{{name}}</h5>
+                <h4>{{price}}<span>€</span></h4>
             </div>
-            <div class="elment-row">
-                <p>{{description}}</p>
-                
+            <hr>
+            <div class="element-row">
+                <h6>{{description}}</h6>
             </div>
         </div>
   
-        <div >
-            <button class="black-btn" style="display: inline;" onclick="showEditForm('{{this._id}}')">Edit dish</button>
-            <div id={{this._id}} style="display: none;">
-                <form method="POST" action="/restaurant/dishes/edit/{{this._id}}">
+        <div class="pl40 mb20">
+            <button class="grey-btn" style="display: inline;" onclick="showEditForm('{{this._id}}')">Edit dish</button>
+            <div class="ml20" id={{this._id}} style="display: none;">
+                <form class="white-back-form" method="POST" action="/restaurant/dishes/edit/{{this._id}}">
                     <div>
                         <label for="name">Dish name</label>
                         <input type="text" name="name" id="name" placeholder="Dish name" value="{{name}}">
@@ -162,14 +183,15 @@
                         <input type="number" step="any" name="price" id="price-input" value="{{price}}">
                     </div>
 
-
-                    <button type="submit" onclick="showEditForm2('{{this._id}}')">Save dish</button>
+                <div class="center-div mb20 mt10">
+                    <button class = "black-btn" type="submit" onclick="showEditForm2('{{this._id}}')">Save dish</button>
+                </div>
                 </form>
             </div>
        
          
             <form style="display: inline;" method="POST" action="/restaurant/dishes/remove/{{this._id}}" style="width: 10%;">
-                <button class="black-btn" type="submit">Remove dish</i></button>
+                <button class="grey-btn" type="submit">Remove dish</i></button>
             </form>
         </div>
        
@@ -197,6 +219,19 @@
             document.getElementById(dish).style.display = "none";
         }
     }
+
+    $(window).load(function () {
+    $(".trigger_popup_fricc").click(function(){
+       $('.hover_bkgr_fricc').show();
+    });
+    $('.hover_bkgr_fricc').click(function(){
+        $('.hover_bkgr_fricc').hide();
+    });
+    $('.popupCloseButton').click(function(){
+        $('.hover_bkgr_fricc').hide();
+    });
+});
+
 
 
 </script>
