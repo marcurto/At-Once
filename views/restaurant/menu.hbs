@@ -1,22 +1,112 @@
-{{#if menu}}
+<nav class="navbar navbar-expand-md navbar-black bg-white ">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2 "></div>
+    <div class="mx-auto order-0">
+        <a class="navbar-brand mx-auto" href="#"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"
+                style="color:black;rotate: 90deg; letter-spacing: -2.5px; text-align: center;">|||</span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            <li class="letter-space nav-item ">
+                <a class="nav-link" href="/restaurant/restaurant-profile">PROFILE</a>
+            </li>
+            <li class="letter-space nav-item">
+                <a class="nav-link" href="/restaurant/dishes">DISHES</a>
+            </li>
+            <li class="letter-space nav-item">
+                <a class="nav-link" href="/restaurant/menu">MENU</a>
+            </li>
+            <li class="letter-space nav-item">
+                <a class="nav-link" href="/restaurant/orders">ORDERS</a>
+            </li>
+            <li class="letter-space nav-item">
+                <a class="nav-link" href="/logout">LOG OUT</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
-    {{menu.name}}
+<header class="restaurant-headers menu-dashboard">
+
+    <div class="restaurant-dashboard-text">
+        <h2>Menu</h2>
+    </div>
+</header>
+
+
+<main class="center-div mb100">
+    {{#if menu}}
+    <div class="form-backgroud white-back-form">
+        <h5 class="mb30 mt40" style="text-align: center;">This is how your customers <br>will see your menu.</h5>
+    </div>
+    <h3>{{menu.name}}</h3>
+
+    
+    <h6 class="mt20">To start with</h6>
     {{#each menu.dishes}}
-    <p>{{name}}</p>
-    {{/each}}
+    {{#ifCond category '==' "starters"}}
+        <div class="element">
+            <div class="element-row">
+                <h5>{{name}}</h5>
+                <h4>{{price}}<span>€</span></h4>
+            </div>
+            <hr>
+            <div class="element-row">
+                <h6>{{description}}</h6>
+            </div>
+            {{/ifCond}}
+            {{/each}}
+        </div>
 
+    <h6 class="mt20">Main dishes</h6>
+    {{#each menu.dishes}}
+    {{#ifCond this.category '==' "main"}}
+            <div class="element">
+            <div class="element-row">
+                <h5>{{name}}</h5>
+                <h4>{{price}}<span>€</span></h4>
+            </div>
+            <hr>
+            <div class="element-row">
+                <h6>{{description}}</h6>
+            </div>
+            {{/ifCond}}
+            {{/each}}
+        </div>
 
-    <button><a href="/restaurant/menu-edit/{{menu._id}}">Update menu</a></button>
-    <form method="POST" action="/restaurant/menu/remove/{{menu._id}}">
-        <button type="submit">Remove menu</button>
+    <h6 class="mt20">Desserts</h6>
+    {{#each menu.dishes}}
+    {{#ifCond category '==' "desserts"}}
+            <div class="element">
+            <div class="element-row">
+                <h5>{{name}}</h5>
+                <h4>{{price}}<span>€</span></h4>
+            </div>
+            <hr>
+            <div class="element-row">
+                <h6>{{description}}</h6>
+            </div>
+            {{/ifCond}}
+            {{/each}}
+        </div>
+
+<div class="center-div mt30" style="flex-direction: row; width: 100%; align-items: center">
+    <div>
+    <button class="black-btn mr20" style="width:130px"><a href="/restaurant/menu-edit/{{menu._id}}">Update menu</a></button>
+   </div>
+   <div>
+    <form method="POST"action="/restaurant/menu/remove/{{menu._id}}">
+        <button class="black-btn" style="width:130px" type="submit">Remove menu</button>
     </form>
+    </div>
+</div>
+    {{else}}
+    <div class="form-backgroud white-back-form">
+        <button class="black-btn mt40"><a href="/restaurant/menu-create">Create menu</a></button>
+        <h5 class="mb30 mt20" style="text-align: center;">This is how your customers <br>will see your menu.</h5>
+    </div>
+    {{/if }}
 
-
-
-{{else}}
-<button><a href="/restaurant/menu-create">Create menu</a></button>
-
-
-{{/if }}
-
-<a href="/restaurant/dashboard-restaurant">Back</a>
+</main>
