@@ -55,6 +55,21 @@
             <hr>
             <div class="element-row">
                 <h6>{{description}}</h6>
+                <div class= "category-icons mt10">
+                 {{#each characteristics}}
+                {{#ifCond this '==' 'spicy'}}
+                    <img src="/images/spicy-icon.png">
+                {{/ifCond}}
+             
+                {{#ifCond this '==' 'veg'}}
+                    <img src="/images/veg-icon.png">
+                {{/ifCond}}
+             
+                {{#ifCond this '==' 'gluten-free'}}
+                    <img style="width: 30px; height:30px" src="/images/gluten-free-icon.png">
+                {{/ifCond}} 
+             {{/each}} 
+                </div>
             </div>
         </div>
             {{/ifCond}}
@@ -72,6 +87,23 @@
             <hr>
             <div class="element-row">
                 <h6>{{description}}</h6>
+                  {{#each characteristics}}
+        
+                {{#ifCond this '==' 'spicy'}}
+                    <p>hola</p>
+                    <img src="/images/spicy-icon.png">
+                {{/ifCond}}
+             
+                {{#ifCond this '==' 'veg'}}
+                    <img src="/images/veg-icon.png">
+                      <p>hola</p>
+                {{/ifCond}}
+             
+                {{#ifCond this '==' 'gluten-free'}}
+                    <img src="/images/gluten-free-icon.png">
+                      <p>hola</p>
+                {{/ifCond}} 
+             {{/each}} 
             </div>
         </div>
             {{/ifCond}}
@@ -88,6 +120,25 @@
             <hr>
             <div class="element-row">
                 <h6>{{description}}</h6>
+
+                {{#each characteristics}}
+        
+                {{#ifCond this '==' 'spicy'}}
+                    <p>hola</p>
+                    <img src="/images/spicy-icon.png">
+                {{/ifCond}}
+             
+                {{#ifCond this '==' 'veg'}}
+                    <img src="/images/veg-icon.png">
+                      <p>hola</p>
+                {{/ifCond}}
+             
+                {{#ifCond this '==' 'gluten-free'}}
+                    <img src="/images/gluten-free-icon.png">
+                      <p>hola</p>
+                {{/ifCond}} 
+             {{/each}} 
+                 
             </div>
         </div>
             {{/ifCond}}

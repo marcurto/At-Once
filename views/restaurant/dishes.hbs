@@ -39,81 +39,94 @@
     <div class="form-backgroud white-back-form">
         <h3 class="mt30">Your dishes list</h3>
         <button type="button" class="black-btn mb30 mt10" data-toggle="modal" data-target="#exampleModal">
-        Create dish
+            Create dish
         </button>
     </div>
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Create your dish</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body center-div">
-           <form class="white-back-form" action="/restaurant/dishes" method="post">
-            <div>
-                <label for="name">Dish name:</label>
-                <input type="text" name="name" id="name" placeholder="Dish name">
-            </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Create your dish</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body center-div">
+                    <form class="white-back-form" action="/restaurant/dishes" method="post">
+                        <div>
+                            <label for="name">Dish name:</label>
+                            <input type="text" name="name" id="name" placeholder="Dish name">
+                        </div>
 
-            <div>
-                <label for="description">Description</label>
-                <input type="text" name="description" id="description" placeholder="Description">
-            </div>
+                        <div>
+                            <label for="description">Description</label>
+                            <input type="text" name="description" id="description" placeholder="Description">
+                        </div>
 
-            <div>
-                <label for="characteristics">Characteristics</label>
-                <input type="text" name="characteristics" id="characteristics" placeholder="Put 2 or 3 characteristics">
-            </div>
+                        <div>
+                            <label for="characteristics">Characteristics</label>
+                            <h6 class="ta">Indicate if your dish is spicy, veggetarian or gluten free.</h6>
+                            <div style="display: flex; align-items:center;" class="mt20">
+                                <input type="checkbox" id="characteristics" name="characteristics" value="spicy"/>
+                                <label style="margin:0px;" for="checkbox"><img style="width:40px" src="/images/spicy-icon.png" /></label>
 
-            <div>
-                <label for="allergies">This dish has...?</label>
-                <select name="allergies" id="allergies">
-                    <option value="Wheat">Wheat</option>
-                    <option value="Egg">Egg</option>
-                    <option value="Peanut">Peanut</option>
-                    <option value="Milk">Milk</option>
-                    <option value="Celery">Celery</option>
-                    <option value="Sesam">Sesam</option>
-                    <option value="Lupine">Lupine</option>
-                    <option value="Fish">Fish</option>
-                    <option value="Crustacea">Crustacea</option>
-                    <option value="Mollusk">Mollusk</option>
-                    <option value="Soy">Soy</option>
-                    <option value="Nuts">Nuts</option>
-                    <option value="Mustard">Mustard</option>
-                    <option value="Sulphites">Sulphites</option>
-                </select>
-            </div>
+                                <input type="checkbox" id="characteristics" name="characteristics" value="veg"/>
+                                <label style="margin:0px;" for="checkbox"><img style="width:40px" src="/images/veg-icon.png" /></label>
 
-            <div>
-                <label for="categories">Select the category</label>
-                <select name="categories" id="categories" value="{{category}}">
-                    <option value="starters">To start with</option>
-                    <option value="main">Main Dishes</option>
-                    <option value="desserts">Desserts</option>
-                </select>
-            </div>
+                                <input type="checkbox" id="characteristics" name="characteristics" value="gluten-free"/>
+                                <label style="margin:0px;" for="checkbox"><img style="width:50px" src="/images/gluten-free-icon.png" /></label>
+                            </div>
 
-            <div>
-                <label for="price-input"> Price </label>
-                <input type="number" step="any" name="price" id="price-input" />
+                        </div>
+
+                        <div>
+                            <label for="allergies">This dish has:</label>
+                            <select name="allergies" id="allergies">
+                                <option value="Wheat">Wheat</option>
+                                <option value="Egg">Egg</option>
+                                <option value="Peanut">Peanut</option>
+                                <option value="Milk">Milk</option>
+                                <option value="Celery">Celery</option>
+                                <option value="Sesam">Sesam</option>
+                                <option value="Lupine">Lupine</option>
+                                <option value="Fish">Fish</option>
+                                <option value="Crustacea">Crustacea</option>
+                                <option value="Mollusk">Mollusk</option>
+                                <option value="Soy">Soy</option>
+                                <option value="Nuts">Nuts</option>
+                                <option value="Mustard">Mustard</option>
+                                <option value="Sulphites">Sulphites</option>
+                                <option value="None">None of those</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="categories">Select the category</label>
+                            <select name="categories" id="categories" value="{{category}}">
+                                <option value="starters">To start with</option>
+                                <option value="main">Main Dishes</option>
+                                <option value="desserts">Desserts</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="price-input"> Price </label>
+                            <input type="number" step="any" name="price" id="price-input" />
+                        </div>
+                        <div class="btn-center mt20">
+                            <button class="black-btn"> Save dish </button>
+                        </div>
+                    </form>
+                </div>
+
             </div>
-            <div class="btn-center mt20">
-                <button class="black-btn" > Save dish </button>
-            </div>
-        </form>
-      </div>
-      
+        </div>
     </div>
-  </div>
-</div>
-   
 
- <!--- Edit and remove -->
+
+    <!--- Edit and remove -->
 
     <div class="w100">
         {{#each dishes}}
@@ -127,7 +140,7 @@
                 <h6>{{description}}</h6>
             </div>
         </div>
-  
+
         <div class="pl40 mb20">
             <button class="grey-btn" style="display: inline;" onclick="showEditForm('{{this._id}}')">Edit dish</button>
             <div class="ml20" id={{this._id}} style="display: none;">
@@ -183,21 +196,23 @@
                         <input type="number" step="any" name="price" id="price-input" value="{{price}}">
                     </div>
 
-                <div class="center-div mb20 mt10">
-                    <button class = "black-btn" type="submit" onclick="showEditForm2('{{this._id}}')">Save dish</button>
-                </div>
+                    <div class="center-div mb20 mt10">
+                        <button class="black-btn" type="submit" onclick="showEditForm2('{{this._id}}')">Save
+                            dish</button>
+                    </div>
                 </form>
             </div>
-       
-         
-            <form style="display: inline;" method="POST" action="/restaurant/dishes/remove/{{this._id}}" style="width: 10%;">
+
+
+            <form style="display: inline;" method="POST" action="/restaurant/dishes/remove/{{this._id}}"
+                style="width: 10%;">
                 <button class="grey-btn" type="submit">Remove dish</i></button>
             </form>
         </div>
-       
-       
-     
-   
+
+
+
+
 
         {{/each}}
     </div>
@@ -221,16 +236,16 @@
     }
 
     $(window).load(function () {
-    $(".trigger_popup_fricc").click(function(){
-       $('.hover_bkgr_fricc').show();
+        $(".trigger_popup_fricc").click(function () {
+            $('.hover_bkgr_fricc').show();
+        });
+        $('.hover_bkgr_fricc').click(function () {
+            $('.hover_bkgr_fricc').hide();
+        });
+        $('.popupCloseButton').click(function () {
+            $('.hover_bkgr_fricc').hide();
+        });
     });
-    $('.hover_bkgr_fricc').click(function(){
-        $('.hover_bkgr_fricc').hide();
-    });
-    $('.popupCloseButton').click(function(){
-        $('.hover_bkgr_fricc').hide();
-    });
-});
 
 
 

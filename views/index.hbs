@@ -1,16 +1,18 @@
-<p> Welcome to {{ title }}. </p>
+<main class="home-main">
+  <div class="form-backgroud pb40">
+    <h2 class="ta">Welcome to YOUORDER</h2>
 
-{{#if isUserLoggedIn}}
-  <p> Hello, {{ currentUserInfo.name }}. </p>
-{{/if}}
 
-<nav>
-  <ul>
-    {{#if isUserLoggedIn}}
-      <li> <a href="/logout"> Log Out </a> </li>
-    {{else}}
-      <li> <a href="/signup"> Sign Up </a> </li>
-      <li> <a href="/login"> Log In </a> </li>
-    {{/if}}
-  </ul>
-</nav>
+    <div class="center-div">
+      {{#if isUserLoggedIn}}
+      <a class="black-btn" href="/logout"> Log Out </a>
+      {{else}}
+      <div class="home-buttons mt20">
+       <div><a class="black-btn mr10" href="/signup"> Sign Up </a></div>
+       <div><a class="black-btn mr10" href="/login"> Log In </a></div>
+      </div>
+      {{/if}}
+    </div>
+
+  </div>
+</main>

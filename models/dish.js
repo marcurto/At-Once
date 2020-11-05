@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const dishSchema = new Schema({
   name: String,
   description: String,
-  characteristics: String,
+  characteristics: Array,
   allergies: String,
   category: String,
   price: Number,
