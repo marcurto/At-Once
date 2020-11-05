@@ -157,8 +157,17 @@
 
                         <div>
                             <label for="characteristics">Characteristics</label>
-                            <input type="text" name="characteristics" id="characteristics"
-                                placeholder="Put 2 or 3 characteristics" value="{{characteristics}}">
+                            <h6 class="ta">Indicate if your dish is spicy, veggetarian or gluten free.</h6>
+                            <div style="display: flex; align-items:center;" class="mt20">
+                                <input type="checkbox" id="characteristics" name="characteristics" value="spicy"/>
+                                <label style="margin:0px;" for="checkbox"><img style="width:40px" src="/images/spicy-icon.png" /></label>
+
+                                <input type="checkbox" id="characteristics" name="characteristics" value="veg"/>
+                                <label style="margin:0px;" for="checkbox"><img style="width:40px" src="/images/veg-icon.png" /></label>
+
+                                <input type="checkbox" id="characteristics" name="characteristics" value="gluten-free"/>
+                                <label style="margin:0px;" for="checkbox"><img style="width:50px" src="/images/gluten-free-icon.png" /></label>
+                            </div>
                         </div>
 
                         <div>

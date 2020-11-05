@@ -5,6 +5,7 @@
 
 <main class="center-div mb100 mt30">
 <h3>Welcome to {{restaurant.name}}</h3>
+<img class="restaurant-logo-carta-detail" src="{{restaurant.imgPath}}" />
 
 <form class="white-back-form" action="/client/order-summary/{{restaurant._id}}" method="POST">
 
@@ -15,72 +16,134 @@
     </div>
     
 <h3 class="ta mt30">{{restMenu.name}}</h3>
+<div class="categories-container center-div">
 
     <h6 class="mt20 ta">To start with</h6>
-    {{#each restMenu.dishes}}
-    {{#ifCond this.category '==' "starters"}}
-    <div class="element user-element">
-        <div style="display: flex;">
-        <div class="element-row user-element" style="justify-content: flex-start;">
-            <input class="input" type="checkbox" name={{this._id}} value="true">
-            <label for="selectedDish">{{this.name}}</label>
-        </div>
-        <div>
-            <h4>{{this.price}}<span>€</span></h4>
-        </div>
-        </div>
-        <hr>
-           <div class="element-row">
-                <h6>{{this.description}}</h6>
-           </div>
-                <span style="font-size: 7px; margin-top:3px; text-transform: uppercase">This dish can contain: {{this.allergies}}</span>
+    <div class="category-dishes-list center-div">
+        {{#each restMenu.dishes}}
+        {{#ifCond this.category '==' "starters"}}
+        <div class="element user-element-carta-detail">
+            <div style="display: flex;">
+            <div class="element-row user-element" style="justify-content: flex-start;">
+                <input class="input" type="checkbox" name={{this._id}} value="true">
+                <label for="selectedDish">{{this.name}}</label>
+            </div>
+            <div>
+                <h4>{{this.price}}<span>€</span></h4>
+            </div>
+            </div>
+            <hr>
+            <div class="element-row">
+                    <h6>{{this.description}}</h6>
+                    <div class="category-icons mt10">
+                        {{#each characteristics}}
+                        {{#ifCond this '==' 'spicy'}}
+                        <img src="/images/spicy-icon.png">
+                        {{/ifCond}}
+                        {{#ifCond this '==' 'veg'}}
+                        <img src="/images/veg-icon.png">
+                        {{/ifCond}}
+                        {{#ifCond this '==' 'gluten-free'}}
+                        <img style="width: 30px; height:30px" src="/images/gluten-free-icon.png">
+                        {{/ifCond}}
+                        {{/each}}
+                    </div>
+            </div>
+            <span style="font-size: 7px; margin-top:3px; text-transform: uppercase">This dish can contain: {{this.allergies}}</span>
     </div>
     {{/ifCond}}
     {{/each}}
+    </div>
 
     <h6 class="mt20 ta">Main dishes</h6>
-    {{#each restMenu.dishes}}
-    {{#ifCond this.category '==' "main"}}
-     <div class="element user-element">
-        <div style="display: flex;">
-        <div class="element-row user-element" style="justify-content: flex-start;">
-            <input class="input" type="checkbox" name={{this._id}} value="true">
-            <label for="selectedDish">{{this.name}}</label>
+     <div class="category-dishes-list center-div">
+        {{#each restMenu.dishes}}
+        {{#ifCond this.category '==' "main"}}
+        <div class="element user-element-carta-detail">
+            <div style="display: flex;">
+            <div class="element-row user-element" style="justify-content: flex-start;">
+                <input class="input" type="checkbox" name={{this._id}} value="true">
+                <label for="selectedDish">{{this.name}}</label>
+            </div>
+            <div>
+                <h4>{{this.price}}<span>€</span></h4>
+            </div>
+            </div>
+            <hr>
+            <div class="element-row">
+                    <h6>{{this.description}}</h6>
+                    <div class="category-icons mt10">
+                        {{#each characteristics}}
+                        {{#ifCond this '==' 'spicy'}}
+                        <img src="/images/spicy-icon.png">
+                        {{/ifCond}}
+                        {{#ifCond this '==' 'veg'}}
+                        <img src="/images/veg-icon.png">
+                        {{/ifCond}}
+                        {{#ifCond this '==' 'gluten-free'}}
+                        <img style="width: 30px; height:30px" src="/images/gluten-free-icon.png">
+                        {{/ifCond}}
+                        {{/each}}
+                    </div>
+            </div>
+            <span style="font-size: 7px; margin-top:3px; text-transform: uppercase">This dish can contain: {{this.allergies}}</span>
         </div>
-        <div>
-            <h4>{{this.price}}<span>€</span></h4>
+        {{/ifCond}}
+        {{/each}}
         </div>
-        </div>
-        <hr>
-           <div class="element-row">
-                <h6>{{this.description}}</h6>
-           </div>
-                <span style="font-size: 7px; margin-top:3px; text-transform: uppercase">This dish can contain: {{this.allergies}}</span>
-    </div>
-    {{/ifCond}}
-    {{/each}}
+
+
 
     <h6 class="mt20 ta">Desserts</h6>
-    {{#each restMenu.dishes}}
-    {{#ifCond this.category '==' "desserts"}}
-    <div class="element user-element">
-        <div style="display: flex;">
-        <div class="element-row user-element" style="justify-content: flex-start;">
-            <input class="input" type="checkbox" name={{this._id}} value="true">
-            <label for="selectedDish">{{this.name}}</label>
-        </div>
-        <div>
-            <h4>{{this.price}}<span>€</span></h4>
-        </div>
-        </div>
-        <hr>
-           <div class="element-row">
-                <h6>{{this.description}}</h6>
-           </div>
-                <span style="font-size: 7px; margin-top:3px; text-transform: uppercase">This dish can contain: {{this.allergies}}</span>
+     <div class="category-dishes-list center-div">
+        {{#each restMenu.dishes}}
+        {{#ifCond this.category '==' "desserts"}}
+        <div class="element user-element-carta-detail">
+            <div style="display: flex;">
+            <div class="element-row user-element" style="justify-content: flex-start;">
+                <input class="input" type="checkbox" name={{this._id}} value="true">
+                <label for="selectedDish">{{this.name}}</label>
+            </div>
+            <div>
+                <h4>{{this.price}}<span>€</span></h4>
+            </div>
+            </div>
+            <hr>
+            <div class="element-row">
+                    <h6>{{this.description}}</h6>
+                    <div class="category-icons mt10">
+                                {{#each characteristics}}
+                                {{#ifCond this '==' 'spicy'}}
+                                <img src="/images/spicy-icon.png">
+                                {{/ifCond}}
+                                {{#ifCond this '==' 'veg'}}
+                                <img src="/images/veg-icon.png">
+                                {{/ifCond}}
+                                {{#ifCond this '==' 'gluten-free'}}
+                                <img style="width: 30px; height:30px" src="/images/gluten-free-icon.png">
+                                {{/ifCond}}
+                                {{/each}}
+                            </div>
+            </div>
+                    <span style="font-size: 7px; margin-top:3px; text-transform: uppercase">This dish can contain: {{this.allergies}}</span>
+            </div>
+            {{/ifCond}}
+            {{/each}}
     </div>
-    {{/ifCond}}
-    {{/each}}
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
 <div class="center-div mt30">
     <button class="black-btn" type="submit">Order</button>
     </div>

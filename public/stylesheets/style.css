@@ -438,18 +438,18 @@ select {
   border: none;
   text-align: center;
 
-  -webkit-transition: color .15s ease-out,background-color .15s ease-out,border-color .15s ease-out;
+  /* -webkit-transition: color .15s ease-out,background-color .15s ease-out,border-color .15s ease-out;
   -moz-transition: color .15s ease-out,background-color .15s ease-out,border-color .15s ease-out;
-  transition: color .15s ease-out,background-color .15s ease-out,border-color .15s ease-out;
+  transition: color .15s ease-out,background-color .15s ease-out,border-color .15s ease-out; */
 }
 
 .black-btn:hover {
-  background-color: white;
+  /* background-color: white;
   color: black;
   border: black solid 1px;
   -webkit-transform: rotateY(-90deg);
   -moz-transform: rotateY(-90deg);
-  transform: rotateY(-90deg);
+  transform: rotateY(-90deg); */
   }
 
   /* transform-origin: left; */
@@ -911,16 +911,27 @@ align-items: center;
   display: flex;
   width: 100%;
 }
+.restaurant-logo-carta-detail{
+  height: 80px;
+}
+
 
 
 /* Responsive */
 @media (min-width: 760px){
   #backgound{
-    width: 1000px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
-  #backgound > button{
-    width: 700px !important;
+  
+  .background-button{
+    width: 50%;
     margin-bottom: 20px;
+    justify-content: flex-start;
+  }
+  .background-button button{
+    width: 400px !important;
   }
   .orders-title{
     margin-top: 20px;
@@ -947,10 +958,7 @@ align-items: center;
   #updateProfile h4 {font-size: 18px; line-height: 25px;}
   #updateProfile h5 {font-size: 18px;}
   #updateProfile h6 {font-size: 18px;}
-  #backgound > button{
-    width: 1000px !important;
-    margin-bottom: 20px;
-  }
+  
 }
 
 @media (min-width: 1280px){
@@ -1031,6 +1039,23 @@ align-items: center;
   flex-wrap: wrap;
 }
 .category-elements{
+  display: flex;
+  width: 50%;
+}
+.menu-dishes-list-container{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.menu-dishes-list{
+  width: 33%;
+}
+.category-dishes-list-carta-detail{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+.user-element-carta-detail{
   display: flex;
   width: 50%;
 }

@@ -45,6 +45,7 @@
 
  <div id="backgound" class="mb20 mt20 center-div">
  {{#each orders}}
+ <div class="background-button center-div">
  <button class="black-btn mb10" style="display: inline; width: 300px" onclick="showOrder('{{this._id}}')">Table number: {{table}}</button>
     <div class="orders-display center-div" id={{this._id}} style="display: none;background-color: transparent">
         {{#each dishes}}
@@ -60,6 +61,7 @@
                 <button class="white-btn" type="submit">Remove order</button>
             </form>
     </div>
+    </div>
  {{/each}}
 </div>
 
@@ -71,10 +73,8 @@
     function showOrder(order) {
         if (document.getElementById(order).style.display == "none") {
             document.getElementById(order).style.display = "block";
-            document.getElementById('backgound').style.backgroundColor = '#F6F6F6';
         } else {
             document.getElementById(order).style.display = "none";
-             document.getElementById('backgound').style.backgroundColor = 'white';
 
         }
     }
