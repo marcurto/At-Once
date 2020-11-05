@@ -38,6 +38,7 @@
 
 <main class="center-div mb100">
     {{#if menu}}
+
     <div class="form-backgroud white-back-form">
         <h5 class="mb30 mt40" style="text-align: center;">This is how your customers <br>will see your menu.</h5>
     </div>
@@ -106,6 +107,23 @@
              {{/each}} 
             </div>
         </div>
+                
+        <h6 class="mt20 ">Main dishes</h6>
+        <div class="category-dishes-list">
+            {{#each menu.dishes}}
+            {{#ifCond this.category '==' "main"}}
+                <div class="category-elements">
+                        <div class="element">
+                            <div class="element-row">
+                                <h5>{{name}}</h5>
+                                <h4>{{price}}<span>€</span></h4>
+                            </div>
+                            <hr>
+                            <div class="element-row">
+                                <h6>{{description}}</h6>
+                            </div>
+                        </div>
+                </div>
             {{/ifCond}}
             {{/each}}
 
@@ -141,24 +159,47 @@
                  
             </div>
         </div>
+
+        <h6 class="mt20">Desserts</h6>
+        <div class="category-dishes-list">
+            {{#each menu.dishes}}
+            {{#ifCond category '==' "desserts"}}
+                <div class="category-elements">
+                        <div class="element">
+                            <div class="element-row">
+                                <h5>{{name}}</h5>
+                                <h4>{{price}}<span>€</span></h4>
+                            </div>
+                            <hr>
+                            <div class="element-row">
+                                <h6>{{description}}</h6>
+                            </div>
+                        </div>
+                </div>
             {{/ifCond}}
             {{/each}}
+        </div>
+       
 
-<div class="center-div mt30" style="flex-direction: row; width: 100%; align-items: center">
+    </div>
+
+    <div class="center-div mt30" style="flex-direction: row; width: 100%; align-items: center">
+        <div>
+        <button class="black-btn mr20" style="width:130px"><a href="/restaurant/menu-edit/{{menu._id}}">Update menu</a></button>
+    </div>
     <div>
-    <button class="black-btn mr20" style="width:130px"><a href="/restaurant/menu-edit/{{menu._id}}">Update menu</a></button>
-   </div>
-   <div>
-    <form method="POST"action="/restaurant/menu/remove/{{menu._id}}">
-        <button class="black-btn" style="width:130px" type="submit">Remove menu</button>
-    </form>
+        <form method="POST"action="/restaurant/menu/remove/{{menu._id}}">
+            <button class="black-btn" style="width:130px" type="submit">Remove menu</button>
+        </form>
+        </div>
     </div>
-</div>
-    {{else}}
-    <div class="form-backgroud white-back-form">
-        <button class="black-btn mt40"><a href="/restaurant/menu-create">Create menu</a></button>
-        <h5 class="mb30 mt20" style="text-align: center;">This is how your customers <br>will see your menu.</h5>
-    </div>
-    {{/if }}
+
+
+        {{else}}
+        <div class="form-backgroud white-back-form">
+            <button class="black-btn mt40"><a href="/restaurant/menu-create">Create menu</a></button>
+            <h5 class="mb30 mt20" style="text-align: center;">This is how your customers <br>will see your menu.</h5>
+        </div>
+        {{/if }}
 
 </main>

@@ -362,6 +362,12 @@ p {
   height: 100%;
   flex-direction: column;
 }
+.center-div-column{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
 
 /* Elementos comunes */
 header {
@@ -574,6 +580,11 @@ select {
 .main-dashboard > p {
   margin-top: 5px;
 }
+.main-dashboard-elements{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 /* Sign up */
 .signup-main {
@@ -733,6 +744,19 @@ select {
   height: 50px;
   margin: 20px 0px;
 }
+.update-profile-form{
+  width: 100%;
+}
+.update-profile-img{
+ width: 50%;
+ height: 500px;
+ margin-left: 70px;
+ display: none;
+}
+.update-profile-img img{
+  width: auto;
+  height: 700px;
+ }
 
 /* Select restaurant */
 .select-main{
@@ -872,5 +896,142 @@ align-items: center;
 .category-icons {
   display: flex;
   align-items: center;
+}
 
+.dishes-list-container{
+  width: 100%;
+}
+.categories-container{
+  width: 100%;
+}
+.category-dishes-list{
+  width: 100%;
+}
+.category-elements{
+  display: flex;
+  width: 100%;
+}
+
+
+/* Responsive */
+@media (min-width: 760px){
+  #backgound{
+    width: 1000px;
+  }
+  #backgound > button{
+    width: 700px !important;
+    margin-bottom: 20px;
+  }
+  .orders-title{
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 1024px){
+  h2{font-size: 5em;}
+  h3{font-size: 3em;}
+  p{font-size: 1.8em;}
+  input{font-size: 13px;}
+  select{font-size: 13px;}
+  nav{font-size: 12px; font-weight: 500; letter-spacing: 1px;}
+  nav a{margin-right: 10px;}
+  .black-btn{font-size: 14px; padding: 15px 20px;}
+  .form-backgroud{width: 40%;}
+  .form-backgroud h4{font-size: 14px;}
+  .restaurant-dashboard h5{font-size: 1.5em;}
+  .main-dashboard h3{font-size: 2.5em;}
+  .main-dashboard a{font-size: 1.7em; font-weight: 500;}
+  #updateProfile {width: 70%;}
+  #updateProfile {padding: 50px 80px}
+  #updateProfile img {height: 100px;}
+  #updateProfile h4 {font-size: 18px; line-height: 25px;}
+  #updateProfile h5 {font-size: 18px;}
+  #updateProfile h6 {font-size: 18px;}
+  #backgound > button{
+    width: 1000px !important;
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 1280px){
+  .update-profile-img{
+   display: block;
+   height: 100%;
+   }
+   .update-profile-title h3{
+     font-size: 2.2em;
+   }
+  .main-dashboard{
+    flex-direction: row;
+  }
+  .main-dashboard-elements{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 70px;
+  }
+  .main-dashboard-elements > h3{
+    
+    font-size: 2.8em;
+  }
+  .main-dashboard-elements > button{
+    margin-top: 15px;
+    font-weight: 600;
+  }
+  .main-dashboard-elements > button a{
+    font-weight: 600;
+  }
+  .dishes-dashbord-content h3{
+    font-size: 2.8em;
+    margin-bottom: 20px;
+  }
+  .element-row > h5{
+    font-size: 1.8em;
+  }
+  .element-row > h4{
+    font-size: 1.8em;
+  }
+  .element-row > h6{
+    font-size: 1.3em;
+  }
+  .grey-btn{
+    font-size: 11px;
+    padding: 5px
+  }
+  .display-none{
+    display: none;
+  }
+  .dishes-list-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .dishes-list{
+    width: 50%;
+  }
+  .restaurant-headers{
+    height: 40vh;
+  }
+  .restaurant-headers h2{
+    font-size: 6.5em;
+  }
+  .dishes-dashboard {
+  background-position-y: top 50%;
+}
+.categories-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.category-dishes-list{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.category-elements{
+  display: flex;
+  width: 50%;
+}
 }

@@ -125,96 +125,89 @@
         </div>
     </div>
 
-
-    <!--- Edit and remove -->
-
-    <div class="w100">
-        {{#each dishes}}
-        <div class="element">
-            <div class="element-row">
-                <h5>{{name}}</h5>
-                <h4>{{price}}<span>€</span></h4>
+ <!--- Edit and remove -->
+    <div class="dishes-list-container">
+            {{#each dishes}}
+        <div class="w100 dishes-list">
+            <div class="element">
+                <div class="element-row">
+                    <h5>{{name}}</h5>
+                    <h4>{{price}}<span>€</span></h4>
+                </div>
+                <hr>
+                <div class="element-row">
+                    <h6>{{description}}</h6>
+                </div>
             </div>
-            <hr>
-            <div class="element-row">
-                <h6>{{description}}</h6>
-            </div>
-        </div>
+    
+            <div class="pl40 mb20">
+                <button class="grey-btn" style="display: inline;" onclick="showEditForm('{{this._id}}')">Edit dish</button>
+                <div class="ml20" id={{this._id}} style="display: none;">
+                    <form class="white-back-form" method="POST" action="/restaurant/dishes/edit/{{this._id}}">
+                        <div>
+                            <label for="name">Dish name</label>
+                            <input type="text" name="name" id="name" placeholder="Dish name" value="{{name}}">
+                        </div>
 
-        <div class="pl40 mb20">
-            <button class="grey-btn" style="display: inline;" onclick="showEditForm('{{this._id}}')">Edit dish</button>
-            <div class="ml20" id={{this._id}} style="display: none;">
-                <form class="white-back-form" method="POST" action="/restaurant/dishes/edit/{{this._id}}">
-                    <div>
-                        <label for="name">Dish name</label>
-                        <input type="text" name="name" id="name" placeholder="Dish name" value="{{name}}">
-                    </div>
+                        <div>
+                            <label for="description">Description</label>
+                            <input type="text" name="description" id="description" placeholder="Description"
+                                value="{{description}}">
+                        </div>
 
-                    <div>
-                        <label for="description">Description</label>
-                        <input type="text" name="description" id="description" placeholder="Description"
-                            value="{{description}}">
-                    </div>
+                        <div>
+                            <label for="characteristics">Characteristics</label>
+                            <input type="text" name="characteristics" id="characteristics"
+                                placeholder="Put 2 or 3 characteristics" value="{{characteristics}}">
+                        </div>
 
-                    <div>
-                        <label for="characteristics">Characteristics</label>
-                        <input type="text" name="characteristics" id="characteristics"
-                            placeholder="Put 2 or 3 characteristics" value="{{characteristics}}">
-                    </div>
+                        <div>
+                            <label for="allergies">This dish has...?</label>
+                            <select name="allergies" id="allergies" value="{{allergies}}">
+                                <option value="Wheat">Wheat</option>
+                                <option value="Egg">Egg</option>
+                                <option value="Peanut">Peanut</option>
+                                <option value="Milk">Milk</option>
+                                <option value="Celery">Celery</option>
+                                <option value="Sesam">Sesam</option>
+                                <option value="Lupine">Lupine</option>
+                                <option value="Fish">Fish</option>
+                                <option value="Crustacea">Crustacea</option>
+                                <option value="Mollusk">Mollusk</option>
+                                <option value="Soy">Soy</option>
+                                <option value="Nuts">Nuts</option>
+                                <option value="Mustard">Mustard</option>
+                                <option value="Sulphites">Sulphites</option>
+                            </select>
+                        </div>
 
-                    <div>
-                        <label for="allergies">This dish has...?</label>
-                        <select name="allergies" id="allergies" value="{{allergies}}">
-                            <option value="Wheat">Wheat</option>
-                            <option value="Egg">Egg</option>
-                            <option value="Peanut">Peanut</option>
-                            <option value="Milk">Milk</option>
-                            <option value="Celery">Celery</option>
-                            <option value="Sesam">Sesam</option>
-                            <option value="Lupine">Lupine</option>
-                            <option value="Fish">Fish</option>
-                            <option value="Crustacea">Crustacea</option>
-                            <option value="Mollusk">Mollusk</option>
-                            <option value="Soy">Soy</option>
-                            <option value="Nuts">Nuts</option>
-                            <option value="Mustard">Mustard</option>
-                            <option value="Sulphites">Sulphites</option>
-                        </select>
-                    </div>
+                        <div>
+                            <label for="categories">Select the category</label>
+                            <select name="categories" id="categories" value="{{category}}">
+                                <option value="starters">To start with</option>
+                                <option value="main">Main Dishes</option>
+                                <option value="desserts">Desserts</option>
+                            </select>
+                        </div>
 
-                    <div>
-                        <label for="categories">Select the category</label>
-                        <select name="categories" id="categories" value="{{category}}">
-                            <option value="starters">To start with</option>
-                            <option value="main">Main Dishes</option>
-                            <option value="desserts">Desserts</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label for="price-input"> Price </label>
-                        <input type="number" step="any" name="price" id="price-input" value="{{price}}">
-                    </div>
+                        <div>
+                            <label for="price-input"> Price </label>
+                            <input type="number" step="any" name="price" id="price-input" value="{{price}}">
+                        </div>
 
                     <div class="center-div mb20 mt10">
-                        <button class="black-btn" type="submit" onclick="showEditForm2('{{this._id}}')">Save
-                            dish</button>
+                        <button class = "black-btn" type="submit" onclick="showEditForm2('{{this._id}}')">Save dish</button>
                     </div>
+                    </form>
+                </div>
+        
+            
+                <form style="display: inline;" method="POST" action="/restaurant/dishes/remove/{{this._id}}" style="width: 10%;">
+                    <button class="grey-btn" type="submit">Remove dish</i></button>
                 </form>
-            </div>
-
-
-            <form style="display: inline;" method="POST" action="/restaurant/dishes/remove/{{this._id}}"
-                style="width: 10%;">
-                <button class="grey-btn" type="submit">Remove dish</i></button>
-            </form>
+            </div>      
         </div>
-
-
-
-
-
-        {{/each}}
+            {{/each}}
     </div>
 </main>
 
