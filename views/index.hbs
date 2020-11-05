@@ -1,18 +1,16 @@
 <main class="home-main">
+  <img src="/images/logo-1.png" alt="">
   <div class="form-backgroud pb40">
-    <h2 class="ta">Welcome to YOUORDER</h2>
-
-
+    <h2 class="ta">Welcome!</h2>
     <div class="center-div">
       {{#if isUserLoggedIn}}
       <a class="black-btn" href="/logout"> Log Out </a>
       {{else}}
       <div class="home-buttons mt20">
-       <div><a class="black-btn mr10" href="/signup"> Sign Up </a></div>
-       <div><a class="black-btn mr10" href="/login"> Log In </a></div>
+        <div><a class="black-btn mr10" href="/signup"> Sign Up </a></div>
+        <div><a class="black-btn mr10" href="/login"> Log In </a></div>
       </div>
       {{/if}}
     </div>
-
   </div>
 </main>
