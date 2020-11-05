@@ -135,6 +135,7 @@ router.post('/dishes/edit/:id', function (req, res, next) {
       if (err) {return next(err); }
       res.redirect('/restaurant/restaurant-profile');
     });
+  })
   //Your menu
   router.get("/menu", withAuth, async (req, res, next) => {
     try {
@@ -192,7 +193,6 @@ router.post('/dishes/edit/:id', function (req, res, next) {
       user: req.userID,
       restaurant: restaurant._id
     };
-    console.log(updatedMenu, 'holi')
     for (var key in req.body) {
       if (req.body[key] == "true") {           
         updatedMenu.dishes.push(key);
@@ -236,8 +236,5 @@ router.post('/orders/remove/:id', withAuth, (req, res, next) => {
       next();
   })
 });
-
-
-
 
 module.exports = router;
