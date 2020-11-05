@@ -27,34 +27,42 @@
         </ul>
     </div>
 </nav>
-<main class="center-div mb50 mt20">
-<form class="white-back-form" action="/restaurant/restaurant-profile-edit/{{restaurant._id}}" method="POST" enctype="multipart/form-data">
+<main class="center-div-column mb50 mt20 ">
+    <div class="update-profile-img">
+        <img src='/images/update-profile.jpg'/>
+    </div>
+  <div class="update-profile-form center-div">
+      <div class="update-profile-title mb10">
+          <h3>Update your profile</h3>
+      </div>
+    <form class="white-back-form" action="/restaurant/restaurant-profile-edit/{{restaurant._id}}" method="POST" enctype="multipart/form-data">
 
-    <div>
-        <label for="name"> Restaurant name </label>
-        <input type="text" name="name" id="rname" placeholder="Restaurant name" value="{{restaurant.name}}">
-    </div>    
-    <div>
-        <label for="description"> Description </label>
-        <input type="textarea" name="description" id="rdescription" placeholder="Describe your restaurant" value="{{restaurant.description}}">
-    </div>    
-    <div>
-        <label for="address"> Adress: </label>
-        <input type="text" name="address" id="radress" placeholder="" value="{{restaurant.contactInfo.address}}">
-        <label for="phone"> Phone number: </label>
-        <input type="number" name="phone" id="rphone" placeholder="" value="{{restaurant.contactInfo.phone}}">
-        <label for="email"> Email: </label>
-        <input type="email" name="email" id="remail" placeholder="" value="{{restaurant.contactInfo.email}}">
-        <label for="website"> Website: </label>
-        <input type="text" name="website" id="rwebsite" placeholder="" value="{{restaurant.contactInfo.website}}">
-    </div>   
-     <div>
-        <label for="imgPath"> Image: </label>
-        <input style="height: 40px; border: none" type="file" name="imgPath" value="{{restaurant.imgPath}}">
-        
-    </div>
-    <div class="center-div mt30">
-    <button class=" black-btn" type="submit">Edit profile</button>
-    </div>
-</form>
+        <div>
+            <label for="name"> Restaurant name </label>
+            <input type="text" name="name" id="rname" placeholder="Restaurant name" value="{{restaurant.name}}">
+        </div>    
+        <div>
+            <label for="description"> Description </label>
+            <input type="textarea" name="description" id="rdescription" placeholder="Describe your restaurant" value="{{restaurant.description}}">
+        </div>    
+        <div>
+            <label for="address"> Adress: </label>
+            <input type="text" name="address" id="radress" placeholder="" value="{{restaurant.contactInfo.address}}">
+            <label for="phone"> Phone number: </label>
+            <input type="number" name="phone" id="rphone" placeholder="" value="{{restaurant.contactInfo.phone}}">
+            <label for="email"> Email: </label>
+            <input type="email" name="email" id="remail" placeholder="" value="{{restaurant.contactInfo.email}}">
+            <label for="website"> Website: </label>
+            <input type="text" name="website" id="rwebsite" placeholder="" value="{{restaurant.contactInfo.website}}">
+        </div>   
+        <div>
+            <label for="imgPath"> Image: </label>
+            <input style="height: 40px; border: none" type="file" name="imgPath" value="{{restaurant.imgPath}}">
+            
+        </div>
+        <div class="center-div mt30">
+        <button class=" black-btn" type="submit">Edit profile</button>
+        </div>
+    </form>
+ </div>
 </main>
