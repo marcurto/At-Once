@@ -720,6 +720,17 @@ width: 28px;
   margin-top: 0px;
 }
 
+.element span{
+  font-size: 8px; 
+  margin-top:3px; 
+  text-transform: uppercase; 
+  text-align:left;
+}
+
+.menu-intro{
+text-align: center;
+}
+
 /* Orders Restaurant */
 .orders-display{
   background-color: white;
@@ -936,9 +947,8 @@ align-items: center;
 } 
 .home-container{
   justify-content: flex-start;
-  margin-top: 240px;
+  padding-top: 100px;
 }
-
 
 .element-row img{
   width:24px;
@@ -976,6 +986,11 @@ align-items: center;
   width: 100%;
 }
 
+.element-user-carta-detail span{
+font-size: 8px;
+margin-top: 3px;
+text-transform: uppercase;
+}
 
 
 
@@ -1021,9 +1036,6 @@ align-items: center;
   #updateProfile h5 {font-size: 18px;}
   #updateProfile h6 {font-size: 18px;}
   
-}
-
-@media (min-width: 1024px){
   .element-row >h5 {font-size: 2em !important;}
   .element-row >h6 {font-size: 1.7em !important;}
   .update-profile-img{
@@ -1124,10 +1136,51 @@ align-items: center;
   display: flex;
   width: 45%;
 }
+.user-element-carta-detail span{
+font-size:11px;
+}
 .categories-container h5{
   font-size: 2em;
 }
 .categories-container h6{
   font-size: 2em;
+}
+.home-container {
+  width: 100%;
+}
+.element span{
+  font-size: 11px; 
+  margin-top:7px; 
+  text-transform: uppercase; 
+  text-align:left;
+  letter-spacing: 1px;
+}
+.menu-intro{
+  font-size:18px;
+}
+.user-element label{
+ font-size: 18px;
+}
+.summary-order{
+  width: 60%;
+}
+.summary-order h5{
+ font-size: 16px;
+ letter-spacing: 1.3px;
+}
+.prices {
+  font-size: 18px;
+}
+.summary-order span{
+  font-size: 14px;
+ }
+.summary-order h6{
+  font-size: 15px;
+} 
+#orderPrice {
+  font-size: 30px;
+}
+.total-price-input p{
+  font-size: 14px;
 }
 }

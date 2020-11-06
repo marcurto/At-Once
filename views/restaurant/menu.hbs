@@ -39,9 +39,9 @@
 <main class="center-div mb100">
     {{#if menu}}
 
-    <div class="form-backgroud white-back-form">
-        <h5 class="mb30 mt40" style="text-align: center;">This is how your customers <br>will see your menu.</h5>
-    </div>
+    
+        <h5 class="mb30 mt60 menu-intro">This is how your customers <br>will see your menu.</h5>
+    
     <h3>{{menu.name}}</h3>
 
 
@@ -49,7 +49,7 @@
 
     <div class="categories-container center-div">
 
-        <h6 class="mt20">To start with</h6>
+        <h6 class="mt20 mb30">To start with</h6>
         <div class="category-dishes-list center-div">
             {{#each menu.dishes}}
             {{#ifCond category '==' "starters"}}
@@ -76,15 +76,14 @@
                             {{/each}}
                         </div>
                     </div>
-                    <span style="font-size: 8px; margin-top:3px; text-transform: uppercase; text-align:left;">This dish
-                        can contain: {{this.allergies}}</span>
+                    <span>This dish can contain: {{this.allergies}}</span>
                 </div>
             </div>
             {{/ifCond}}
             {{/each}}
         </div>
 
-        <h6 class="mt20">Main dishes</h6>
+        <h6 class="mt20 mb30">Main dishes</h6>
         <div class="category-dishes-list center-div">
             {{#each menu.dishes}}
             {{#ifCond this.category '==' "main"}}
@@ -115,15 +114,14 @@
                             {{/each}}
                         </div>
                     </div>
-                    <span style="font-size: 8px; margin-top:3px; text-transform: uppercase; text-align:left;">This dish
-                        can contain: {{this.allergies}}</span>
+                    <span>This dish can contain: {{this.allergies}}</span>
                 </div>
             </div>
             {{/ifCond}}
             {{/each}}
         </div>
 
-        <h6 class="mt20">Desserts</h6>
+        <h6 class="mt20 mb30">Desserts</h6>
         <div class="category-dishes-list center-div">
             {{#each menu.dishes}}
             {{#ifCond category '==' "desserts"}}
@@ -151,8 +149,7 @@
                         </div>
                     </div>
 
-                    <span style="font-size: 8px; margin-top:3px; text-transform: uppercase; text-align:left;">This dish
-                        can contain: {{this.allergies}}</span>
+                    <span>This dish can contain: {{this.allergies}}</span>
                 </div>
             </div>
 

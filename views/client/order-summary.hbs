@@ -20,7 +20,7 @@
     <div class="form-backgroud white-back-form ">
         <h3 class=" mb30">This is your order:</h3>
     </div>  
-<div class="w100 pl40 pr40">
+<div class="summary-order w100 pl40 pr40">
 {{#each order.dishes}}
 <div class="w100" style="display: flex; justify-content: space-between;">
 <h5 class="bottom-dashed">{{name}}</h5>
@@ -32,9 +32,9 @@
 <h6 class="mt30">Total price: </h6>
 <form class="total-price-input" action="/client/order-summary/{{order._id}}/update" method="POST">
     <input id= "orderPrice" value= "" name="price">
-    <h4 class="ta" style="font-size: 10px;">If everything it's okay proceed to finish your order.</h4>
-    <div class="center-div mt10">
-        <button class="black-btn" type="submit">Finish</button>
+    <p class="ta mb10">If everything it's okay proceed to finish your order.</p>
+    <div class="center-div mt20">
+        <button class="black-btn" type="submit">Order</button>
     </div>
 </form>
 </div>
