@@ -5,7 +5,7 @@ const dishSchema = new Schema({
   name: String,
   description: String,
   characteristics: Array,
-  allergies: String,
+  allergies: Array,
   category: String,
   price: Number,
   user: { type: Schema.Types.ObjectId, ref: 'User' },

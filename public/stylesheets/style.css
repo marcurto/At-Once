@@ -405,7 +405,7 @@ select {
   display: block;
   margin-bottom: 20px;
   width: 100%;
-  font-size: 11px;
+  font-size: 13px;
   background-color: white;
   color: #4e4e4e;
  
@@ -676,6 +676,31 @@ select {
   justify-content: start;
 }
 
+.allergies-dishes-list-container{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.allergies-dishes-list{
+  width: 33%;
+  margin-top: 15px;
+}
+
+.allergies-checkbox{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.allergies-checkbox > input{
+margin: 0px;
+width: 28px;
+}
+
+.allergies-checkbox > label{
+  margin:0px;
+  }
+
 /* Create menu */
 .checkbox{
   display: flex; 
@@ -799,13 +824,15 @@ select {
 
 /* Carta detail */
 .detail-dashboard{
-  background-image: url("/images/carta.jpg");
+  background-image: url("/images/dishes2.jpg");
 }
+
 .user-element{
   width: 100%;
   padding-left: 0px;
   padding-right: 0px;
 }
+
 .user-element > input{
   width: 20px;
   margin-bottom: 0px;
@@ -867,22 +894,27 @@ justify-content: flex-start;
 }
 
 .logo-nav img{
-  height: 40px;
+  height: 30px;
   padding-left: 10px;
+  margin:12px 7px 7px 7px;
 }
 .text-nav{
 display: flex;
 align-items: center;
 }
 .text-nav a{
-  margin-right: 10px;
+  margin-right: 15px;
   font-weight: 600;
   letter-spacing: 1px;
-  font-size: 9px;
+  font-size: 11px;
+  text-decoration: none;
+  color:black;
+}
+.text-nav a:hover{
+ color: rgb(88, 88, 88);
 }
 
-
-/* User nav */
+/* home page */
 
 .home-main {
   height: 100vh;
@@ -917,6 +949,10 @@ align-items: center;
 .category-icons {
   display: flex;
   align-items: center;
+}
+
+.category-icons img{
+ margin-left:4px;
 }
 
 .dishes-list-container{

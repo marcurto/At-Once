@@ -1,12 +1,11 @@
 <header class="restaurant-headers summary-dashboard">
 <nav class="user-nav">
     <div class="logo-nav">
-        <img src="/images/logo-1.png" />
     </div>
     <div class="text-nav">  
  
-        <a>PROFILE</a>
-        <a>LOG OUT</a>
+        {{!-- <a href="/client/dashboard-client">PROFILE</a> --}}
+        <a href="/client/logout">LOG OUT</a>
    
     </div>
   
@@ -15,7 +14,7 @@
 
 
 <main class="center-div mb100 mt30">
-<h3>Welcome to {{restaurant.name}}</h3>
+<h3>{{restaurant.name}}</h3>
 <img class="restaurant-logo-carta-detail" src="{{restaurant.imgPath}}" />
 
 <form class="white-back-form" action="/client/order-summary/{{restaurant._id}}" method="POST">
@@ -60,7 +59,7 @@
                         {{/each}}
                     </div>
             </div>
-            <span style="font-size: 7px; margin-top:3px; text-transform: uppercase">This dish can contain: {{this.allergies}}</span>
+            <span style="font-size: 8px; margin-top:3px; text-transform: uppercase">This dish can contain: {{this.allergies}}</span>
     </div>
     {{/ifCond}}
     {{/each}}
@@ -97,7 +96,7 @@
                         {{/each}}
                     </div>
             </div>
-            <span style="font-size: 7px; margin-top:3px; text-transform: uppercase">This dish can contain: {{this.allergies}}</span>
+            <span style="font-size: 8px; margin-top:3px; text-transform: uppercase">This dish can contain: {{this.allergies}}</span>
         </div>
         {{/ifCond}}
         {{/each}}
@@ -136,7 +135,7 @@
                                 {{/each}}
                             </div>
             </div>
-                    <span style="font-size: 7px; margin-top:3px; text-transform: uppercase">This dish can contain: {{this.allergies}}</span>
+                    <span style="font-size: 8px; margin-top:3px; text-transform: uppercase">This dish can contain: {{this.allergies}}</span>
             </div>
             {{/ifCond}}
             {{/each}}
