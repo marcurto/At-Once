@@ -1,21 +1,24 @@
 
 <main class="select-main">
-    <div><img src="/images/logo-1.png" />
+    <div class="mb30">
+        <img src="/images/logo-1.png" />
     </div>
-<div class="form-backgroud ">
 
-    <label class="pt20 " for="categories">Select a restaurant</label>
-    <form method="POST" action="/client/carta-detail">
-        <select name="restaurantId">
-            {{#each restaurants}}
-            <option value={{this._id}}>{{this.name}}</option>
-            {{/each}}
-        </select>
-        <div class="center-div mb30">
-        <button class="black-btn" type="submit">Continue</button>
+
+
+    <div class="form-backgroud">
+        <label class="pt20 " for="categories">Select a restaurant</label>
+        <form method="POST" action="/client/carta-detail">
+            <select name="restaurantId">
+                {{#each restaurants}}
+                <option value={{this._id}}>{{this.name}}</option>
+                {{/each}}
+            </select>
+            <div class="center-div mb30">
+            <button class="black-btn" type="submit">Continue</button>
+        </div>
+        </form>
     </div>
-    </form>
-</div>
 </main>
 
 

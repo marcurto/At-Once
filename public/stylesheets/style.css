@@ -1023,7 +1023,7 @@ align-items: center;
   
 }
 
-@media (min-width: 1280px){
+@media (min-width: 1024px){
   .element-row >h5 {font-size: 2em !important;}
   .element-row >h6 {font-size: 1.7em !important;}
   .update-profile-img{
