@@ -76,6 +76,8 @@
                             {{/each}}
                         </div>
                     </div>
+                    <span style="font-size: 8px; margin-top:3px; text-transform: uppercase; text-align:left;">This dish
+                        can contain: {{this.allergies}}</span>
                 </div>
             </div>
             {{/ifCond}}
@@ -92,7 +94,7 @@
                         <h5>{{name}}</h5>
                         <h4>{{price}}<span>€</span></h4>
                     </div>
-                
+
                     <hr>
                     <div class="element-row">
                         <h6>{{description}}</h6>
@@ -108,69 +110,77 @@
                             {{/ifCond}}
 
                             {{#ifCond this '==' 'gluten-free'}}
-                            <img src="/images/gluten-free-icon.png">
+                            <img style="width: 30px; height:30px" src="/images/gluten-free-icon.png">
                             {{/ifCond}}
                             {{/each}}
                         </div>
                     </div>
+                    <span style="font-size: 8px; margin-top:3px; text-transform: uppercase; text-align:left;">This dish
+                        can contain: {{this.allergies}}</span>
                 </div>
             </div>
             {{/ifCond}}
             {{/each}}
         </div>
 
-            <h6 class="mt20">Desserts</h6>
-            <div class="category-dishes-list center-div">
-                {{#each menu.dishes}}
-                {{#ifCond category '==' "desserts"}}
-                <div class="category-elements">
-                    <div class="element">
-                        <div class="element-row">
-                            <h5>{{name}}</h5>
-                            <h4>{{price}}<span>€</span></h4>
-                        </div>
-                        <hr>
-                        <div class="element-row">
-                            <h6>{{description}}</h6>
-                            <div class="category-icons mt10">
-                                {{#each characteristics}}
-                                {{#ifCond this '==' 'spicy'}}
-                                <img src="/images/spicy-icon.png">
-                                {{/ifCond}}
-                                {{#ifCond this '==' 'veg'}}
-                                <img src="/images/veg-icon.png">
-                                {{/ifCond}}
-                                {{#ifCond this '==' 'gluten-free'}}
-                                <img src="/images/gluten-free-icon.png">
-                                {{/ifCond}}
-                                {{/each}}
-                             </div>
+        <h6 class="mt20">Desserts</h6>
+        <div class="category-dishes-list center-div">
+            {{#each menu.dishes}}
+            {{#ifCond category '==' "desserts"}}
+            <div class="category-elements">
+                <div class="element">
+                    <div class="element-row">
+                        <h5>{{name}}</h5>
+                        <h4>{{price}}<span>€</span></h4>
+                    </div>
+                    <hr>
+                    <div class="element-row">
+                        <h6>{{description}}</h6>
+                        <div class="category-icons mt10">
+                            {{#each characteristics}}
+                            {{#ifCond this '==' 'spicy'}}
+                            <img src="/images/spicy-icon.png">
+                            {{/ifCond}}
+                            {{#ifCond this '==' 'veg'}}
+                            <img src="/images/veg-icon.png">
+                            {{/ifCond}}
+                            {{#ifCond this '==' 'gluten-free'}}
+                            <img style="width: 30px; height:30px" src="/images/gluten-free-icon.png">
+                            {{/ifCond}}
+                            {{/each}}
                         </div>
                     </div>
+
+                    <span style="font-size: 8px; margin-top:3px; text-transform: uppercase; text-align:left;">This dish
+                        can contain: {{this.allergies}}</span>
+                </div>
             </div>
+
+
+
             {{/ifCond}}
             {{/each}}
-            </div>
         </div>
+    </div>
 
-        <div class="center-div mt30" style="flex-direction: row; width: 100%; align-items: center">
-            <div>
-                <button class="black-btn mr20" style="width:130px"><a href="/restaurant/menu-edit/{{menu._id}}">Update
-                        menu</a></button>
-            </div>
-            <div>
-                <form method="POST" action="/restaurant/menu/remove/{{menu._id}}">
-                    <button class="black-btn" style="width:130px" type="submit">Remove menu</button>
-                </form>
-            </div>
+    <div class="center-div mt30" style="flex-direction: row; width: 100%; align-items: center">
+        <div>
+            <button class="black-btn mr20" style="width:130px"><a href="/restaurant/menu-edit/{{menu._id}}">Update
+                    menu</a></button>
         </div>
-
-
-        {{else}}
-        <div class="form-backgroud white-back-form">
-            <button class="black-btn mt40"><a href="/restaurant/menu-create">Create menu</a></button>
-            <h5 class="mb30 mt20" style="text-align: center;">This is how your customers <br>will see your menu.</h5>
+        <div>
+            <form method="POST" action="/restaurant/menu/remove/{{menu._id}}">
+                <button class="black-btn" style="width:130px" type="submit">Remove menu</button>
+            </form>
         </div>
-        {{/if }}
+    </div>
+
+
+    {{else}}
+    <div class="form-backgroud white-back-form">
+        <button class="black-btn mt40"><a href="/restaurant/menu-create">Create menu</a></button>
+        <h5 class="mb30 mt20" style="text-align: center;">This is how your customers <br>will see your menu.</h5>
+    </div>
+    {{/if }}
 
 </main>

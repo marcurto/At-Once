@@ -77,12 +77,12 @@ router.get('/order-summary/:id', withAuth, async (req, res, next) => {
 router.post("/order-summary/:id/update", withAuth, async (req, res, next) => {
   // const order = await Comanda.findOne({user: req.userID})
   const orderWithPrice = {
-    price: req.body.price
+    price: req.body.price.slice(0,-1)
   };
     
     Comanda.updateOne({_id: req.params.id}, orderWithPrice, (err) => {
       if (err) {return next(err); }
-      // res.redirect('/restaurant/menu');
+       res.redirect('/restaurant/menu');
     });
   
 });

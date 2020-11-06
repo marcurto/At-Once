@@ -81,29 +81,100 @@
 
                         </div>
 
-                        <div>
-                            <label for="allergies">This dish has:</label>
-                            <select name="allergies" id="allergies">
-                                <option value="Wheat">Wheat</option>
-                                <option value="Egg">Egg</option>
-                                <option value="Peanut">Peanut</option>
-                                <option value="Milk">Milk</option>
-                                <option value="Celery">Celery</option>
-                                <option value="Sesam">Sesam</option>
-                                <option value="Lupine">Lupine</option>
-                                <option value="Fish">Fish</option>
-                                <option value="Crustacea">Crustacea</option>
-                                <option value="Mollusk">Mollusk</option>
-                                <option value="Soy">Soy</option>
-                                <option value="Nuts">Nuts</option>
-                                <option value="Mustard">Mustard</option>
-                                <option value="Sulphites">Sulphites</option>
-                                <option value="None">None of those</option>
-                            </select>
-                        </div>
+                        
+                            <label for="allergies">Select all the ingredients this dish has.</label>
 
+                    <div class="allergies-dishes-list-container">
+                        
+                            <div class="allergies-dishes-list">
+                                <div class="allergies-checkbox">
+                                    <input type="checkbox" id="allergies"name="allergies" value="Wheat"/>
+                                    <label for="checkbox">Wheat</label>
+                                </div>
+                            </div>
+                             <div class="allergies-dishes-list">
+                                <div class="allergies-checkbox">
+                                    <input type="checkbox" id="allergies"name="allergies" value="Egg"/>
+                                    <label for="checkbox">Egg</label>
+                                </div>
+                             </div>
+                             <div class="allergies-dishes-list">
+                                 <div class="allergies-checkbox">
+                                    <input type="checkbox" id="allergies"name="allergies" value="Peanut"/>
+                                    <label for="checkbox">Peanut</label>
+                                </div>
+                             </div>
+                             <div class="allergies-dishes-list">
+                                <div class="allergies-checkbox">
+                                    <input type="checkbox" id="allergies"name="allergies" value="Milk"/>
+                                    <label for="checkbox">Milk</label>
+                                </div>
+                             </div>
+                             <div class="allergies-dishes-list">
+                                <div class="allergies-checkbox">
+                                    <input type="checkbox" id="allergies"name="allergies" value="Celery"/>
+                                    <label for="checkbox">Celery</label>
+                                </div>
+                             </div>
+                             <div class="allergies-dishes-list">
+                                 <div class="allergies-checkbox">
+                                    <input type="checkbox" id="allergies"name="allergies" value="Sesam"/>
+                                    <label for="checkbox">Sesam</label>
+                                </div>
+                            </div>
+                             <div class="allergies-dishes-list">
+                                 <div class="allergies-checkbox">
+                                    <input type="checkbox" id="allergies"name="allergies" value="Lupine"/>
+                                    <label for="checkbox">Lupine</label>
+                                </div>
+                             </div>
+                              <div class="allergies-dishes-list">
+                                <div class="allergies-checkbox">
+                                    <input type="checkbox" id="allergies"name="allergies" value="Fish"/>
+                                    <label for="checkbox">Fish</label>
+                                </div>
+                            </div>
+                             <div class="allergies-dishes-list">
+                                 <div class="allergies-checkbox">
+                                    <input type="checkbox" id="allergies"name="allergies" value="Crustacea"/>
+                                    <label for="checkbox">Crustacea</label>
+                                </div>
+                             </div>
+                             <div class="allergies-dishes-list">
+                                <div class="allergies-checkbox">
+                                    <input type="checkbox" id="allergies"name="allergies" value="Mollusk"/>
+                                    <label for="checkbox">Mollusk</label>
+                                </div>
+                             </div>
+                              <div class="allergies-dishes-list">
+                                <div class="allergies-checkbox">
+                                    <input type="checkbox" id="allergies"name="allergies" value="Soy"/>
+                                    <label for="checkbox">Soy</label>
+                                </div>
+                             </div>
+                              <div class="allergies-dishes-list">
+                                 <div class="allergies-checkbox">
+                                    <input type="checkbox" id="allergies"name="allergies" value="Nuts"/>
+                                    <label for="checkbox">Nuts</label>
+                                </div>
+                             </div>
+                              <div class="allergies-dishes-list">
+                                <div class="allergies-checkbox">
+                                    <input type="checkbox" id="allergies"name="allergies" value="Mustard"/>
+                                    <label for="checkbox">Mustard</label>
+                                </div>
+                             </div>
+                              <div class="allergies-dishes-list">
+                                <div class="allergies-checkbox">
+                                    <input type="checkbox" id="allergies"name="allergies" value="Sulphites"/>
+                                    <label for="checkbox">Sulphites</label>
+                                </div>
+                             </div>
+                        </div>
+                    
+                
                         <div>
-                            <label for="categories">Select the category</label>
+                            <label class="pt10" for="categories">Select the category</label>
                             <select name="categories" id="categories" value="{{category}}">
                                 <option value="starters">To start with</option>
                                 <option value="main">Main Dishes</option>
@@ -124,6 +195,7 @@
             </div>
         </div>
     </div>
+   
 
  <!--- Edit and remove -->
     <div class="dishes-list-container">
