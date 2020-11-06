@@ -437,11 +437,11 @@ select {
   padding: 10px 15px;
   border: none;
   text-align: center;
-
-  /* -webkit-transition: color .15s ease-out,background-color .15s ease-out,border-color .15s ease-out;
-  -moz-transition: color .15s ease-out,background-color .15s ease-out,border-color .15s ease-out;
-  transition: color .15s ease-out,background-color .15s ease-out,border-color .15s ease-out; */
+  transition: all 0.3s;
 }
+
+
+
 
 .black-btn:hover {
   /* background-color: white;
@@ -782,6 +782,20 @@ select {
   letter-spacing: 1px;
   margin: 8px 0px;
 }
+.select-main-order{
+  height: 100vh;
+  background-image: url("/images/update-profile.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0px 30px;
+}
+
 
 /* Carta detail */
 .detail-dashboard{
@@ -795,7 +809,7 @@ select {
 .user-element > input{
   width: 20px;
   margin-bottom: 0px;
-margin-right: 5px;
+  margin-right: 5px;
 }
 .user-element > label{
   margin-top: 0px;
@@ -881,10 +895,17 @@ align-items: center;
   align-items: center;
   justify-content: center;
 }
-
+.home-container img {
+  width: 140px;
+  margin-bottom: 40px;
+}
 .home-buttons{
   display: flex;
 } 
+.home-container{
+  justify-content: flex-start;
+  margin-top: 240px;
+}
 
 
 .element-row img{
@@ -906,6 +927,7 @@ align-items: center;
 }
 .category-dishes-list{
   width: 100%;
+  align-items: space-between;
 }
 .category-elements{
   display: flex;
@@ -914,6 +936,10 @@ align-items: center;
 .restaurant-logo-carta-detail{
   height: 80px;
 }
+.element-user-carta-detail{
+  width: 100%;
+}
+
 
 
 
@@ -962,6 +988,8 @@ align-items: center;
 }
 
 @media (min-width: 1280px){
+  .element-row >h5 {font-size: 2em !important;}
+  .element-row >h6 {font-size: 1.7em !important;}
   .update-profile-img{
    display: block;
    height: 100%;
@@ -1037,6 +1065,7 @@ align-items: center;
   width: 100%;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 .category-elements{
   display: flex;
@@ -1057,6 +1086,12 @@ align-items: center;
 }
 .user-element-carta-detail{
   display: flex;
-  width: 50%;
+  width: 45%;
+}
+.categories-container h5{
+  font-size: 2em;
+}
+.categories-container h6{
+  font-size: 2em;
 }
 }

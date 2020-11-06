@@ -29,28 +29,29 @@
 </nav>
 
 <main class="center-div">
-<div class="perfil-main">
 {{#if restaurant}}
-<div id="updateProfile" class="center-div mt30 pr50 pl50 ta">
+<div class="perfil-main w100">
+<div id="updateProfile" class="center-div mt30 pr50 pl50 ta" style="display: block">
     <h2 class="pl50 pr50 ta">{{restaurant.name}}</h2>
     <img src="{{restaurant.imgPath}}" alt="">
 
     <h4>{{restaurant.description}}</h4>
 
     <h6 class="mt30">You can find us here:</h6>
-    <h5>{{restaurant.contactInfo.address}}
+    <h5>{{restaurant.contactInfo.address}}</h5>
     <h5>{{restaurant.contactInfo.phone}}</h5>
     <h5>{{restaurant.contactInfo.email}}</h5>
     <h5>{{restaurant.contactInfo.website}}</h5>
 
-    <form action="/restaurant/restaurant-profile/edit" enctype="multipart/form-data" method="post">
+    <form class="w100" action="/restaurant/restaurant-profile/edit" enctype="multipart/form-data" method="post">
     <div class="center-div mt30">
-    <button class="black-btn"><a href="/restaurant/restaurant-profile-edit/{{restaurant._id}}">Update profile</a></button></div>
+    <button class="black-btn"><a href="/restaurant/restaurant-profile-edit/{{restaurant._id}}">Update profile</a></button>
+    </div>
     </form>
-
-{{else}}
 </div>
-<div id="createProfile" class="center-div">
+</div>
+{{else}}
+<div id="createProfile" class="center-div" >
     <h2>Crear perfil</h2>
     <form class="white-back-form" action="/restaurant/restaurant-profile" method="post" enctype="multipart/form-data">
         <div>

@@ -17,3 +17,24 @@
     </form>
 </div>
 </main>
+
+<script>
+    window.onload = getMyLocation;
+
+var map;
+function getMyLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(displayLocation);
+  } else {
+    alert('Oops, no geolocation support');
+  }
+}
+
+function displayLocation(position) {
+  //The latitude and longitude values obtained from HTML 5 API.
+  var latitude = position.coords.latitude;
+  var longitude = position.coords.longitude;
+  console.log(latitude);
+  console.log(longitude);
+}
+</script>

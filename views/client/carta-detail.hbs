@@ -30,11 +30,11 @@
 <div class="categories-container center-div">
 
     <h6 class="mt20 ta">To start with</h6>
-    <div class="category-dishes-list center-div">
+    <div class="category-dishes-list center-div mb40">
         {{#each restMenu.dishes}}
         {{#ifCond this.category '==' "starters"}}
-        <div class="element user-element-carta-detail">
-            <div style="display: flex;">
+        <div class="w100 element user-element-carta-detail" style="padding: 10px 0px; ">
+            <div style="display: flex; align-items: center" class="w100">
             <div class="element-row user-element" style="justify-content: flex-start;">
                 <input class="input" type="checkbox" name={{this._id}} value="true">
                 <label for="selectedDish">{{this.name}}</label>
@@ -67,11 +67,11 @@
     </div>
 
     <h6 class="mt20 ta">Main dishes</h6>
-     <div class="category-dishes-list center-div">
+     <div class="category-dishes-list center-div mb40">
         {{#each restMenu.dishes}}
         {{#ifCond this.category '==' "main"}}
-        <div class="element user-element-carta-detail">
-            <div style="display: flex;">
+        <div class="element user-element-carta-detail" style="padding: 10px 0px">
+            <div style="display: flex; align-items: center">
             <div class="element-row user-element" style="justify-content: flex-start;">
                 <input class="input" type="checkbox" name={{this._id}} value="true">
                 <label for="selectedDish">{{this.name}}</label>
@@ -105,13 +105,13 @@
 
 
 
-    <h6 class="mt20 ta">Desserts</h6>
-     <div class="category-dishes-list center-div">
+    <h6 class="mt20 mb10 ta">Desserts</h6>
+     <div class="category-dishes-list center-div mb40">
         {{#each restMenu.dishes}}
         {{#ifCond this.category '==' "desserts"}}
-        <div class="element user-element-carta-detail">
-            <div style="display: flex;">
-            <div class="element-row user-element" style="justify-content: flex-start;">
+        <div class="element user-element-carta-detail" style="padding: 10px 0px">
+            <div style="display: flex; align-items: center">
+             <div class="element-row user-element" style="justify-content: flex-start;">
                 <input class="input" type="checkbox" name={{this._id}} value="true">
                 <label for="selectedDish">{{this.name}}</label>
             </div>
