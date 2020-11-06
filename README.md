@@ -1,6 +1,6 @@
 ## Description
 
-Project 2 is an app for two types of users: restaurants and clients. Restaurants will be able to introduce their dishes and menu in order to show them to their customers online. Clients, on the other hand, will be able to look at the menu through a link and order directly from it. Their orders will be sent to the restaurant  dashboard and they will not need to interact with each other. This will be really useful to avoid unnecessary human contact due to the current situation.
+At Once is an app for two types of users: restaurants and clients. Restaurants will be able to introduce their dishes and menu in order to show them to their customers online. Clients, on the other hand, will be able to look at the menu through a link and order directly from it. Their orders will be sent to the restaurant  dashboard and they will not need to interact with each other. This will be really useful to avoid unnecessary human contact due to the current situation.
 
 
 
@@ -35,56 +35,109 @@ Project 2 is an app for two types of users: restaurants and clients. Restaurants
 ## Server Routes
 
 
+
 ## Wireframes
 <img src="img/wireframes-project-2.jpg">
 
-
 ## Models
 
-**Restaurant user model**
+**User model**
 
-- name
-- direction
-- corporate image
-- email
-- password
+{
+
+  username: String,
+
+  email: String,
+
+  password: String,
+
+  isRestaurant: { type: Boolean, default:true }
+
+}
 
 
 
-**Client user model**
+**Restaurant model**
 
-- name
-- favorites
-- email
-- password
+{
+
+  name: String,
+
+  description: String,
+
+  contactInfo: {
+
+​      address: String,
+
+​      phone: Number,
+
+​      email: String,
+
+​      website: String
+
+  },
+
+  imgPath: String,
+
+  //imgName: String alt descripció
+
+  user: { type: Schema.Types.ObjectId, ref: 'User', unique: true }
+
+}
 
 
 
 **Dish model**
 
-- name
-- image
-- description
-- price
-- details [vegetarian, gluten free..]
-- category (appetizers, main dishes..)
-- id restaurant
+{
 
+  name: String,
 
+  description: String,
+
+  characteristics: Array,
+
+  allergies: Array,
+
+  category: String,
+
+  price: Number,
+
+  user: { type: Schema.Types.ObjectId, ref: 'User' },
+
+  restaurant: { type: Schema.Types.ObjectId, ref: 'Restaurant' }
+
+}
 
 **Menu model** 
 
-- name
-- dishes  [dish1, dish2, dish3..]
-- id restaurant
+{
 
+  name: String,
 
+  dishes: [{type: Schema.Types.ObjectId, ref: 'Dish'}],
+
+  user: { type: Schema.Types.ObjectId, ref: 'User', unique: true },
+
+  restaurant: { type: Schema.Types.ObjectId, ref: 'Restaurant', unique: true}
+
+}
 
 **Client order model**
 
-- table's num
-- client name
-- dishes [dish1, dish3..]
+{
+
+  table: Number,
+
+  price: Number,
+
+  dishes: [{type: Schema.Types.ObjectId, ref: 'Dish'}],
+
+  user: { type: Schema.Types.ObjectId, ref: 'User'},
+
+  restaurant: { type: Schema.Types.ObjectId, ref: 'Restaurant'}
+
+}
 
 
 
@@ -110,23 +163,24 @@ Responsive design
 
 Add geolocation in order to detect the restaurant automatically 
 
-Make payment possible once the client has the summary order
+Add the option of booking
 
-Add an option to book a table on the restaurant profile
+Add favorites
 
 ## Links
 
 #### Git
 
+https://github.com/marcurto/Project_2
 
+https://projecte2ih.herokuapp.com/
 
 #### Slides
 
-
+https://docs.google.com/presentation/d/1jJf5hz56tzwX5mdPWIxUwtXa9800zPfYH6A-XFH8S2k/edit#slide=id.g9f70d3b4be_0_6
 
 #### Trello
 
 [https://trello.com/b/VRmnqEE8/organitzaci%C3%B3-projecte-2](https://trello.com/b/VRmnqEE8/organització-projecte-2)
 
 ## 
-
