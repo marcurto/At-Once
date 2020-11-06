@@ -571,10 +571,10 @@ select {
 .main-dashboard {
   height: 70vh;
   text-align: center;
-  padding: 0px 40px;
+  padding: 0px 45px;
   margin-top: 10px;
 }
-.main-dashboard > h3 {
+.main-dashboard h3 {
   margin-bottom: 0px;
 }
 .main-dashboard > p {
@@ -1027,7 +1027,7 @@ text-transform: uppercase;
   .form-backgroud{width: 40%;}
   .form-backgroud h4{font-size: 14px;}
   .restaurant-dashboard h5{font-size: 1.5em;}
-  .main-dashboard h3{font-size: 2.5em;}
+  .main-dashboard h3{font-size: 2.5em; margin-bottom: 10px;}
   .main-dashboard a{font-size: 1.7em; font-weight: 500;}
   #updateProfile {width: 70%;}
   #updateProfile {padding: 50px 80px}
